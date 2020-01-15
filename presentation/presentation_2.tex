@@ -215,69 +215,69 @@ Tuteur : Denis Villemonais
 
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{Application : \'Echantillonneur de Gibbs pour le mélange de 2 gaussiennes}
-%     Pour 2 gaussiennes:
-%     $\left\{\begin{aligned}
-%         &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=1\right) \sim \mathcal{N}\left(\mu_{1}, \sigma_{1}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=1\right)=\pi_{1}\\
-%         &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=2\right) \sim \mathcal{N}\left(\mu_{2}, \sigma_{2}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=2\right)=\pi_{2} = 1- \pi_{1}
-%     \end{aligned}\right.$
-%         \vspace{0.4cm}
-%         \begin{itemize}
+\begin{frame}
+    \frametitle{Application : \'Echantillonneur de Gibbs pour le mélange de 2 gaussiennes}
+    Pour 2 gaussiennes:
+    $\left\{\begin{aligned}
+        &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=1\right) \sim \mathcal{N}\left(\mu_{1}, \sigma_{1}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=1\right)=\pi_{1}\\
+        &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=2\right) \sim \mathcal{N}\left(\mu_{2}, \sigma_{2}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=2\right)=\pi_{2} = 1- \pi_{1}
+    \end{aligned}\right.$
+        \vspace{0.4cm}
+        \begin{itemize}
         
-%         \item On veut obtenir $\Theta = (\boldsymbol{z}, \mu) = (\boldsymbol{z_1}, \ldots,\boldsymbol{z_1},  \mu)$ \hfill($\pi, \sigma$ fixés à $\hat{\pi}, \hat{\sigma}$)
-%         \vspace{0.2cm}
-%         \item \textcolor{beamerfooter3}{\Large $\boldsymbol{z} | \mu$} :  utiliser $\mathbb{P}\left(\boldsymbol{z}_{i}=j | \mu, \boldsymbol{x} \right)=
-%         { \displaystyle \frac{
-%             \hat{\pi}_{j}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{j}, \hat{\sigma}_{j})
-%             }{
-%                 \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}, \hat{\sigma}_{1})  +  
-%                 \hat{\pi}_{2}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{2}, \hat{\sigma}_{2})
-%             }} \quad j \in \{ 1,2\}
-%             $              
-%         \item \textcolor{beamerfooter3}{\Large $\mu | \boldsymbol{z}$} :
+        \item On veut obtenir $\Theta = (\boldsymbol{z}, \mu) = (\boldsymbol{z_1}, \ldots,\boldsymbol{z_1},  \mu)$ \hfill($\pi, \sigma$ fixés à $\hat{\pi}, \hat{\sigma}$)
+        \vspace{0.2cm}
+        \item \textcolor{beamerfooter3}{\Large $\boldsymbol{z} | \mu$} :  utiliser $\mathbb{P}\left(\boldsymbol{z}_{i}=j | \mu, \boldsymbol{x} \right)=
+        { \displaystyle \frac{
+            \hat{\pi}_{j}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{j}, \hat{\sigma}_{j})
+            }{
+                \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}, \hat{\sigma}_{1})  +  
+                \hat{\pi}_{2}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{2}, \hat{\sigma}_{2})
+            }} \quad j \in \{ 1,2\}
+            $              
+        \item \textcolor{beamerfooter3}{\Large $\mu | \boldsymbol{z}$} :
         
-%         \begin{columns}[T]
+        \begin{columns}[T]
             
-%             \begin{column}{0.3\textwidth}  %%<--- here
-%                 \centering
-%                 {\small (à priori)} \\
-%                 \vspace{0.1cm}
-%                 $\begin{aligned}
-%                     \boldsymbol{x_i} | \mu,\boldsymbol{z_i} = j & \sim \mathcal{N}\left(\mu_{j}, 1 / \hat{\tau}_j \right) \\
-%                     \mu_j & \sim {\mathcal{N}}\left(\mu_{0}, 1 / \tau_{0}\right) \\
-%                 \end{aligned}$ \\
-%                 \vspace{0.2cm}
-%                 {\tiny $\left(\tau_j = 1 / \sigma_j^2, \ \bar{x}=\frac{1}{N} \sum_{i=0}^{N}{x_i}\right)$}
-%             \end{column}
-%             \begin{column}{0.3\textwidth}
-%                 \centering
-%                 {\small (à postériori)} \\
-%                 \vspace{0.2cm}
-%                 $\begin{aligned}
-%                     p(\mu_j | \boldsymbol{z}_i, \mathbf{x}) & \propto p(\boldsymbol{x} | \mu,\boldsymbol{z_i} = j) p(\mu_j)  \\
-%                     & \sim {\mathcal{N}}( \mu_0^{\prime}, 1 / \tau_0^{\prime}) 
-%                 \end{aligned}$
-%             \end{column}
-%             \begin{column}{0.4\textwidth}  %%<--- here
-%                 \centering
-%                 {\small (= maj des coefs)} \\
-%                 \vspace{0.1cm}
-%                 $\begin{aligned}
-%                     \tau^{\prime}_{j_0} &= \tau_0 + N \hat{\tau}_j \\
-%                     \mu_{j_0}^{\prime} &= \frac{N\ \hat{\tau}_j\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau}_j+\tau_{0}} 
-%                 \end{aligned}$
-%             \end{column}     
-%             % \begin{column}{0.14\textwidth}  %%<--- here
-%             %     \begin{flushleft}
+            \begin{column}{0.3\textwidth}  %%<--- here
+                \centering
+                {\small (à priori)} \\
+                \vspace{0.1cm}
+                $\begin{aligned}
+                    \boldsymbol{x_i} | \mu,\boldsymbol{z_i} = j & \sim \mathcal{N}\left(\mu_{j}, 1 / \hat{\tau}_j \right) \\
+                    \mu_j & \sim {\mathcal{N}}\left(\mu_{0}, 1 / \tau_{0}\right) \\
+                \end{aligned}$ \\
+                \vspace{0.2cm}
+                {\tiny $\left(\tau_j = 1 / \sigma_j^2, \ \bar{x}=\frac{1}{N} \sum_{i=0}^{N}{x_i}\right)$}
+            \end{column}
+            \begin{column}{0.3\textwidth}
+                \centering
+                {\small (à postériori)} \\
+                \vspace{0.2cm}
+                $\begin{aligned}
+                    p(\mu_j | \boldsymbol{z}_i, \mathbf{x}) & \propto p(\boldsymbol{x} | \mu,\boldsymbol{z_i} = j) p(\mu_j)  \\
+                    & \sim {\mathcal{N}}( \mu_0^{\prime}, 1 / \tau_0^{\prime}) 
+                \end{aligned}$
+            \end{column}
+            \begin{column}{0.4\textwidth}  %%<--- here
+                \centering
+                {\small (= maj des coefs)} \\
+                \vspace{0.1cm}
+                $\begin{aligned}
+                    \tau^{\prime}_{j_0} &= \tau_0 + N \hat{\tau}_j \\
+                    \mu_{j_0}^{\prime} &= \frac{N\ \hat{\tau}_j\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau}_j+\tau_{0}} 
+                \end{aligned}$
+            \end{column}     
+            % \begin{column}{0.14\textwidth}  %%<--- here
+            %     \begin{flushleft}
                     
-%             %     {\tiny }
-%             %     \end{flushleft}
-%             % \end{column}     
-%         \end{columns}
-% \end{itemize}
+            %     {\tiny }
+            %     \end{flushleft}
+            % \end{column}     
+        \end{columns}
+\end{itemize}
     
-% \end{frame}
+\end{frame}
 
 \begin{frame}
     \small

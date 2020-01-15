@@ -215,69 +215,69 @@ Tuteur : Denis Villemonais
 
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{Application : \'Echantillonneur de Gibbs pour le mélange de 2 gaussiennes}
-%     Pour 2 gaussiennes:
-%     $\left\{\begin{aligned}
-%         &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=1\right) \sim \mathcal{N}\left(\mu_{1}, \sigma_{1}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=1\right)=\pi_{1}\\
-%         &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=2\right) \sim \mathcal{N}\left(\mu_{2}, \sigma_{2}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=2\right)=\pi_{2} = 1- \pi_{1}
-%     \end{aligned}\right.$
-%         \vspace{0.4cm}
-%         \begin{itemize}
+\begin{frame}
+    \frametitle{Application : \'Echantillonneur de Gibbs pour le mélange de 2 gaussiennes}
+    Pour 2 gaussiennes:
+    $\left\{\begin{aligned}
+        &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=1\right) \sim \mathcal{N}\left(\mu_{1}, \sigma_{1}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=1\right)=\pi_{1}\\
+        &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=2\right) \sim \mathcal{N}\left(\mu_{2}, \sigma_{2}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=2\right)=\pi_{2} = 1- \pi_{1}
+    \end{aligned}\right.$
+        \vspace{0.4cm}
+        \begin{itemize}
         
-%         \item On veut obtenir $\Theta = (\boldsymbol{z}, \mu) = (\boldsymbol{z_1}, \ldots,\boldsymbol{z_1},  \mu)$ \hfill($\pi, \sigma$ fixés à $\hat{\pi}, \hat{\sigma}$)
-%         \vspace{0.2cm}
-%         \item \textcolor{beamerfooter3}{\Large $\boldsymbol{z} | \mu$} :  utiliser $\mathbb{P}\left(\boldsymbol{z}_{i}=j | \mu, \boldsymbol{x} \right)=
-%         { \displaystyle \frac{
-%             \hat{\pi}_{j}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{j}, \hat{\sigma}_{j})
-%             }{
-%                 \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}, \hat{\sigma}_{1})  +  
-%                 \hat{\pi}_{2}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{2}, \hat{\sigma}_{2})
-%             }} \quad j \in \{ 1,2\}
-%             $              
-%         \item \textcolor{beamerfooter3}{\Large $\mu | \boldsymbol{z}$} :
+        \item On veut obtenir $\Theta = (\boldsymbol{z}, \mu) = (\boldsymbol{z_1}, \ldots,\boldsymbol{z_1},  \mu)$ \hfill($\pi, \sigma$ fixés à $\hat{\pi}, \hat{\sigma}$)
+        \vspace{0.2cm}
+        \item \textcolor{beamerfooter3}{\Large $\boldsymbol{z} | \mu$} :  utiliser $\mathbb{P}\left(\boldsymbol{z}_{i}=j | \mu, \boldsymbol{x} \right)=
+        { \displaystyle \frac{
+            \hat{\pi}_{j}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{j}, \hat{\sigma}_{j})
+            }{
+                \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}, \hat{\sigma}_{1})  +  
+                \hat{\pi}_{2}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{2}, \hat{\sigma}_{2})
+            }} \quad j \in \{ 1,2\}
+            $              
+        \item \textcolor{beamerfooter3}{\Large $\mu | \boldsymbol{z}$} :
         
-%         \begin{columns}[T]
+        \begin{columns}[T]
             
-%             \begin{column}{0.3\textwidth}  %%<--- here
-%                 \centering
-%                 {\small (à priori)} \\
-%                 \vspace{0.1cm}
-%                 $\begin{aligned}
-%                     \boldsymbol{x_i} | \mu,\boldsymbol{z_i} = j & \sim \mathcal{N}\left(\mu_{j}, 1 / \hat{\tau}_j \right) \\
-%                     \mu_j & \sim {\mathcal{N}}\left(\mu_{0}, 1 / \tau_{0}\right) \\
-%                 \end{aligned}$ \\
-%                 \vspace{0.2cm}
-%                 {\tiny $\left(\tau_j = 1 / \sigma_j^2, \ \bar{x}=\frac{1}{N} \sum_{i=0}^{N}{x_i}\right)$}
-%             \end{column}
-%             \begin{column}{0.3\textwidth}
-%                 \centering
-%                 {\small (à postériori)} \\
-%                 \vspace{0.2cm}
-%                 $\begin{aligned}
-%                     p(\mu_j | \boldsymbol{z}_i, \mathbf{x}) & \propto p(\boldsymbol{x} | \mu,\boldsymbol{z_i} = j) p(\mu_j)  \\
-%                     & \sim {\mathcal{N}}( \mu_0^{\prime}, 1 / \tau_0^{\prime}) 
-%                 \end{aligned}$
-%             \end{column}
-%             \begin{column}{0.4\textwidth}  %%<--- here
-%                 \centering
-%                 {\small (= maj des coefs)} \\
-%                 \vspace{0.1cm}
-%                 $\begin{aligned}
-%                     \tau^{\prime}_{j_0} &= \tau_0 + N \hat{\tau}_j \\
-%                     \mu_{j_0}^{\prime} &= \frac{N\ \hat{\tau}_j\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau}_j+\tau_{0}} 
-%                 \end{aligned}$
-%             \end{column}     
-%             % \begin{column}{0.14\textwidth}  %%<--- here
-%             %     \begin{flushleft}
+            \begin{column}{0.3\textwidth}  %%<--- here
+                \centering
+                {\small (à priori)} \\
+                \vspace{0.1cm}
+                $\begin{aligned}
+                    \boldsymbol{x_i} | \mu,\boldsymbol{z_i} = j & \sim \mathcal{N}\left(\mu_{j}, 1 / \hat{\tau}_j \right) \\
+                    \mu_j & \sim {\mathcal{N}}\left(\mu_{0}, 1 / \tau_{0}\right) \\
+                \end{aligned}$ \\
+                \vspace{0.2cm}
+                {\tiny $\left(\tau_j = 1 / \sigma_j^2, \ \bar{x}=\frac{1}{N} \sum_{i=0}^{N}{x_i}\right)$}
+            \end{column}
+            \begin{column}{0.3\textwidth}
+                \centering
+                {\small (à postériori)} \\
+                \vspace{0.2cm}
+                $\begin{aligned}
+                    p(\mu_j | \boldsymbol{z}_i, \mathbf{x}) & \propto p(\boldsymbol{x} | \mu,\boldsymbol{z_i} = j) p(\mu_j)  \\
+                    & \sim {\mathcal{N}}( \mu_0^{\prime}, 1 / \tau_0^{\prime}) 
+                \end{aligned}$
+            \end{column}
+            \begin{column}{0.4\textwidth}  %%<--- here
+                \centering
+                {\small (= maj des coefs)} \\
+                \vspace{0.1cm}
+                $\begin{aligned}
+                    \tau^{\prime}_{j_0} &= \tau_0 + N \hat{\tau}_j \\
+                    \mu_{j_0}^{\prime} &= \frac{N\ \hat{\tau}_j\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau}_j+\tau_{0}} 
+                \end{aligned}$
+            \end{column}     
+            % \begin{column}{0.14\textwidth}  %%<--- here
+            %     \begin{flushleft}
                     
-%             %     {\tiny }
-%             %     \end{flushleft}
-%             % \end{column}     
-%         \end{columns}
-% \end{itemize}
+            %     {\tiny }
+            %     \end{flushleft}
+            % \end{column}     
+        \end{columns}
+\end{itemize}
     
-% \end{frame}
+\end{frame}
 
 \begin{frame}
     \small
@@ -308,34 +308,93 @@ Tuteur : Denis Villemonais
 \end{frame}
 
 \begin{frame}[fragile]
-    %\frametitle{Implémentation sous R}
-    \begin{lstlisting}[
-        language=R,
-        basicstyle=\tiny, %or \small or \footnotesize etc.
-        caption={Implémentation Python},
-        captionpos=b,
-        numbers = none
-    ]
-def sample_x_given_y(y, mean, var):
-    mu = mean[0] + var[0,1] * math.sqrt(var[0, 0]) / math.sqrt(var[1, 1]) * (y - mean[1])
-    var = var[0, 0] * (1 - var[1,0])
-    return np.random.normal(mu, var)
+    %\frametitle{\tiny Implémentation sous R}
+    \vspace{-0.2cm}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            
+            \begin{lstlisting}[
+                basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+                captionpos=b,
+                numbers = none
+            ]
+Z_given_mu <- function(X,Z,mu,pi_1){
+    # Z variables latentes
+    
+    remove_i <- (c(1:length(X)) !=i) # enleve variable i
+    estimate_sigma_1 <- sd(X[(remove_i & Z == 1)]) # classe 1
+    estimate_sigma_2 <- sd(X[(remove_i & Z == 2)]) # classe 2 
+                    
+    for (i in 1:length(Z)){
+                    
+        proba1 <- pi_1 * dnorm(X[i],mu[1],estimate_sigma_1) / 
+            (pi_1 * dnorm(X[i],mu[1],estimate_sigma_1) + 
+            (1-pi_1) * dnorm(X[i],mu[2],estimate_sigma_2))
 
-def sample_y_given_x(x, mean, var):
-    mu = mean[1] + var[0, 1] * math.sqrt(var[1, 1]) / math.sqrt(var[0, 0]) * (x - mean[0])
-    var = var[1, 1] * (1 - var[1,0])
-    return np.random.normal(mu, var)
+        Z[i] = sample(1:2, size=1,prob=c(proba1, 1-proba1),
+            replace=TRUE)
+    }
+    return(Z)
+}
+        \end{lstlisting}
+            
+        \end{column}
+        \begin{column}{0.5\textwidth}  %%<--- here
+            
+            \begin{lstlisting}[
+                basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+                captionpos=b,
+                numbers = none
+            ]
+mu_given_Z = function(X, Z, mu_prior){
+    # Z variables latentes  
+    # mu_prior contient parametres loi a priori de mu
 
-def gibbs_sampler(mean, var, N_iter):
-    samples = np.zeros((N_iter, 2))
-    y = mean[1]
-
-    for i in range(N_iter):
-        x = sample_x_given_y(y, mean, var)
-        y = sample_y_given_x(x, mean, var)
-        samples[i, :] = [x, y]
-
-    return samples
+    mu = rep(0,2) ; sigma = rep(0,2)
+        
+    for(j in 1:2){
+        
+        sample_j_size = sum(Z==j) 
+        sample_j_mean = mean(X[Z==j])
+        sigma[j] = sd(X[Z==j]) ; precision_j = 1 / sigma[j]^2
+        
+        precision_post = sample_j_size * precision_j + 
+            mu_prior$precision
+        
+            mean_post = (sample_j_mean * sample_j_size * 
+            precision_j + mu_prior$mean * 
+            mu_prior$precision ) / precision_post
+        
+        mu[j] = rnorm(1,mean_post,sqrt(1/precision_post)) # on tire mu selon la loi normale a posteriori
+    }
+    return(list(mu = mu, sigma = sigma))
+    }
+        \end{lstlisting}
+    \end{column}
+\end{columns}
+\vspace{-0.3cm}
+\begin{lstlisting}[
+    basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+    captionpos=b,
+    caption={\tiny Implémentation en R},
+    numbers = none
+]
+echantillonneur_gibbs <- function(X,N_simu){
+    # X sont les donnees
+    # initalisation
+    .
+    .
+    
+    for (k in 1:N_simu){ 
+        
+        Z <- Z_given_mu(X,Z,mu,pi_1) ; param_post <- mu_given_Z(X, Z, mu_prior)
+        mu = param_post$mu
+    .
+    .
+    .
+    }
+    return(list(Z, mu_1, mu_2))
+}     
 \end{lstlisting}
 \end{frame}
 
