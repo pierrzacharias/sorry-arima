@@ -1,0 +1,32 @@
+---
+  title: "Note projet"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+Argument on prefère controler l'incertitude du modèle avec la prior que sur des variables d'ajustement "bizarre" dans ARIMA
+Modèle bayesien non paramètrique car le modèle va s'ajuster aux données avec la prior, pas besoin de calculer la vraisemblance on cherche juste à obtenir la meilleure post probability
+
+From the point of view of Bayesian inference, MLE is a special case of maximum a posteriori estimation (MAP) that assumes a uniform prior distribution of the parameters.
+
+And one more difference is that maximum likelihood is overfitting-prone, but if you adopt the Bayesian approach the over-fitting problem can be avoided. 
+
+L'approche bayesienne permet de moyenner sur des valeurs non observés
+la post est l'actalisation de la prior avec la likelihhodd
+
+argument our approche bayesiennes :
+- on peut faire des intervalles de confidences des paramètre alors que pour MLE on utilise le ration des likelihood/ wald test
+cette incertitude dans l'estimateur est comprise dans la prédiction
+MCMC permet une meilleur convergence
+
+MCMC utilise sampling de gibbs pour que la mesure invariante de la suite de Mc suive la distribution jointe 
+
+Uyilisation du package btsts pour le modèle bayésien
+
+
+
+
+Christian RObert l'analyse statistique bayesienne

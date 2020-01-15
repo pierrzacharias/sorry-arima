@@ -1,0 +1,97 @@
+---
+title: ""
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+\pagenumbering{gobble} 
+
+```{r setup, include=FALSE}
+# Sys.setenv(RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc")
+knitr::opts_chunk$set(echo = TRUE)
+setwd("/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/")
+```
+
+
+```{r fig.height=5, fig.width=7, message=FALSE, warning=TRUE, include=FALSE}
+
+library(bsts)
+
+
+library(TSA)
+library(dynlm)
+library(lmtest)
+library(forecast)
+library(ggplot2)
+library(reshape2)
+library(zoo)
+data(iclaims)
+```
+
+La chronique des demandes de droit au chômage et les chronique des recherches Google suivent le même comportement. 
+Nous pouvons essayer d'adopter ue approche fréquentiste et essayer de modéliser la serie  `iclaimsNSA ` par un modèle ARIMA avec une régression linéaire sur les recherches Google `unemployment.office`,`idaho unemployment`, et `filing.unemployment`. 
+Un tel modèle s'écrit 
+
+$$(1-B)^{d} X_{t}=(1-B)^{d} f(t)+\frac{\Theta(B)}{\Phi(B)} \varepsilon_{t}$$
+
+On peut voir cela comme une approche fréquentiste par rapport à la méthode précédente.
+
+```{r eval=TRUE, echo=TRUE, fig.height=5, fig.width=7, message=FALSE}
+data(iclaims)
+Y <- initial.claims
+Plot <- cbind.data.frame(
+  as.numeric(initial.claims$iclaimsNSA),
+  as.numeric(initial.claims$idaho.unemployment),
+  as.numeric(initial.claims$unemployment.office),
+  as.numeric(initial.claims$filing.unemployment),
+  as.Date(time(initial.claims)))  
+
+names(Plot) <- c("iclaimsNSA", "idaho.unemployment","unemployment.office",
+                 "filing.unemployment","Date")
+ggplot(data=Plot, aes(x=Date)) +
+  geom_line(aes(y=iclaimsNSA, colour = "iclaimsNSA"), size=1.5,linetype = "solid") +
+  geom_line(aes(y=idaho.unemployment, colour = "idaho.unemployment"),
+            size=1.2,linetype = "blank")  +
+  geom_line(aes(y=unemployment.office, colour = "unemployment.office"),
+            size=1.2,linetype = "dotted") +
+  geom_line(aes(y=filing.unemployment, colour = "filing.unemployment"), 
+            size=1.2,linetype = "dashed") 
+
+
+# corrélogramme de la serie
+tsdisplay(initial.claims$iclaimsNSA,lag.max = 60)
+# corrélogramme de la serie différenciée
+tsdisplay(diff(initial.claims$iclaimsNSA),lag.max = 60)
+
+# le kurtosis et supérieur à 3
+kurtosis(diff(initial.claims$iclaimsNSA))
+# le test de box_Pierre nous permet de rejeter l'hypothèse d'un bruit blanc gaussien
+Box.test(initial.claims$iclaimsNSA)
+hist(initial.claims$iclaimsNSA, freq = F)
+```
+
+Ainsi nous ne ne pouvons pas appliquer ce modèle sur cette chronique.
+Nous pourrions par ailleur essayer d'appliquer un modèle de regression multiple classique, mais les residus ne composent pas alors un bruit blanc, ce qui montre l'utilité de l'approche bayésienne.
+
+```{r eval=FALSE, fig.height=5, fig.width=7, message=FALSE, include=FALSE}
+# linear_model <- lm(iclaimsNSA~.,data=initial.claims)
+# coeftest(linear_model)
+# 
+# linear_model <- lm(iclaimsNSA~michigan.unemployment + idaho.unemployment + new.jersey.unemployment  ,data=initial.claims)
+# coeftest(linear_model)
+# summary(linear_model)
+# hist(linear_model$residuals,freq=F,nclass=20)
+# qqnorm(linear_model$residuals)
+# qqline(linear_model$residuals)
+# 
+# tsdisplay(linear_model$residuals)
+# summary(linear_model)
+# residuals(linear_model)
+# 
+# plot(cumsum(predict(linear_model)))
+# line(initial.claims$iclaimsNSA)
+# plot(predict(linear_model))
+
+```
+

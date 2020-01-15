@@ -1,0 +1,26 @@
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1}Méthode ARIMA}{2}{section.1}% 
+\contentsline {section}{\numberline {2}Approche Bayésienne}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Modèle bayésien classique}{2}{subsection.2.1}% 
+\contentsline {paragraph}{}{2}{section*.2}% 
+\contentsline {paragraph}{}{2}{section*.3}% 
+\contentsline {subsection}{\numberline {2.2}Filtre de Kapman}{3}{subsection.2.2}% 
+\contentsline {paragraph}{}{3}{section*.4}% 
+\contentsline {paragraph}{}{3}{section*.5}% 
+\contentsline {paragraph}{}{3}{section*.6}% 
+\contentsline {paragraph}{}{3}{section*.7}% 
+\contentsline {paragraph}{}{3}{section*.8}% 
+\contentsline {paragraph}{Filtre de Kalman}{3}{section*.9}% 
+\contentsline {paragraph}{Lissage de Kalman}{3}{section*.10}% 
+\contentsline {subsection}{\numberline {2.3}Détermination de la \textit {post probability}}{4}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Utilisation d'une \textit {spike and slab prior}}{4}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}Méthodologie finale de la simulation}{4}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}Sélection de modèle}{4}{subsection.2.6}% 
+\contentsline {subsection}{\numberline {2.7}Les données}{4}{subsection.2.7}% 
+\contentsline {subsection}{\numberline {2.8}Le \textit {state Model}}{4}{subsection.2.8}% 
+\contentsline {subsection}{\numberline {2.9}Utilisation de la méthode de MonteCarlo MMCC}{4}{subsection.2.9}% 
+\contentsline {subsection}{\numberline {2.10}slab regression }{4}{subsection.2.10}% 
+\contentsline {section}{\numberline {3}Compraraison avec méthode de transfert}{4}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Note sorry ARIMA}{4}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Notes article : Predicting the Present with Bayesian Structural Time Series}{5}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Bayesien vs fréquentistes}{5}{subsection.3.3}% 

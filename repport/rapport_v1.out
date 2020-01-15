@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{Mod\350lisation avec les processus ARIMA}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{G\351n\351ralit\351s sur les s\351ries temporelles}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Les processus AR et MA}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Le mod\350le SARIMA}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{D\351termination des param\350tres du mod\350le SARIMA : M\351thode de Box et Jenkins}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{Simulation d'une chronique avec le mod\350le SARIMA}{section.1}% 6
+\BOOKMARK [1][-]{section.2}{Approche Bay\351sienne}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{M\351thode de Mont\351-Carlo et \311chantillonnage de Gibbs}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Le mod\350le d'espace d'\351tat}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{Filtre de Kapman}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Utilisation d'une loi \340 priori spike and slab}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.5}{Entrainement des param\350tres}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Utilisation du mod\350le sur la chronique AirPassenger}{}% 13
+\BOOKMARK [1][-]{section.4}{Pr\351diction des donn\351es du ch\364mage avec la spike and slab prior}{}% 14
+\BOOKMARK [1][-]{section.5}{Comparaison de l'approche bay\351sienne et de l'approche fr\351quentiste}{}% 15

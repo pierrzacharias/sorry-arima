@@ -1,0 +1,70 @@
+\begin{thebibliography}{10}
+
+\bibitem{wiki}
+{Wikipédia Markov Chain}.
+
+\bibitem{Github}
+anhdanggit.
+\newblock {Google Queries for Nowcasting New Housing Sales}.
+
+\bibitem{Lebayesianismeaujourd'hui}
+Isabelle Drouet.
+\newblock {\em {Le bayesianisme aujourd'hui}}.
+\newblock Edition Matérilogiques, 2016.
+
+\bibitem{ssvs}
+Edward~I. George and Robert~E. McCulloch.
+\newblock {Variable Selection Via Gibbs Sampling}.
+\newblock {\em Journal of the American Statistical Association},
+  88(423):881--889, Sep 1993.
+
+\bibitem{kalman}
+S.H.~Koopman J.~Durbin.
+\newblock {A simple and efficient simulation smoother for state space time
+  series analysis}.
+\newblock October 2011.
+
+\bibitem{BAM}
+Adrian E.~Raftery Jennifer A.~Hoeting, David~Madigan and Chris~T. Volinsky.
+\newblock {Bayesian Model Averaging: A Tutorial}.
+\newblock {\em Statistical Science}, 14(4):382–417, 1999.
+
+\bibitem{kapman1993}
+Siem~Jan Koopman.
+\newblock {Disturbance Smoother for State Space Models}.
+\newblock {\em Biometrika}, 80(1):117--126, Mar 1993.
+
+\bibitem{sorryarima}
+Kim Larsen.
+\newblock {Sorry ARIMA, but I’m Going Bayesian}, 2016.
+
+\bibitem{analysestatistiquebayesienne}
+Chrisitian Robert.
+\newblock {\em {L'analyse statistique bayesienne}}.
+\newblock Economica, 1995.
+
+\bibitem{pedictbayesian}
+Steven~L. Scott and Hal Varian.
+\newblock {Predicting the Present with Bayesian Structural Time Series }.
+\newblock {\em International Journal of Mathematical Modelling and Numerical
+  Optimisation}, 5:4--23, 2014.
+
+\bibitem{youtube}
+Cyrill Stachniss.
+\newblock Slam course - 03 - kalman filter - cyrill stachniss.
+
+\bibitem{courssur}
+Frédéric Sur.
+\newblock {Cours de deuxième année : Modélisation des séries temporelles},
+  2018.
+
+\bibitem{coursproba}
+Denis Villemonais.
+\newblock {Probabilités Cours SG 231}, 2017.
+
+\bibitem{coursgibbs}
+B.~Walsh.
+\newblock {Markov Chain Monte Carlo and Gibbs Sampling, Lecture Notes for EEB
+  }, 2002.
+
+\end{thebibliography}

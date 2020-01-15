@@ -1,0 +1,213 @@
+---
+title: ""
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+\pagenumbering{gobble} 
+
+```{r setup, include=FALSE}
+# Sys.setenv(RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc")
+knitr::opts_chunk$set(echo = TRUE)
+setwd("/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/")
+```
+
+Nous utilisons l'approche bayesienne pour effectuer une prédiction sur la serie temporelle $AirPassenger$. Nous utilisons le package `bsts`. 
+
+$$
+\begin{aligned} 
+y_{t} &=\mu_{t}+\tau_t \\ 
+\mu_{t+1} &=\mu_{t}+\eta_{t} 
+\end{aligned}
+$$
+Nous effectuons 1000 simulations MCMC avec l'anée 1960 comme année de validation. On ne considère pas les 100 premières simulations qui correpondent au temps de convergence de la chaîne de Monté-Carlo.
+
+```{r eval=TRUE, echo=TRUE, fig.height=5, fig.width=7, message=FALSE}
+library(lubridate)
+library(bsts)
+library(dplyr)
+library(ggplot2)
+library(Boom)
+
+data("AirPassengers")
+Y <- window(AirPassengers, start=c(1949, 1), end=c(1959,12))
+y <- log10(Y)
+
+# ajout d'une marche aléatoire au modèle mu_t = mu_t-1 + N(0,sigma.level).^2)
+ss <- AddLocalLevel(list(), y)
+# ajout d'une composante stationnaire annuelle au modèle
+ss <- AddSeasonal(ss, y, nseasons = 12)
+
+bsts.model <- bsts(y, state.specification = ss, niter = 1000, ping=0, seed=2016)
+```
+
+Nous pouvons regarder les paramètres par défaut des distributions à priori.
+
+```{r eval=TRUE, echo=TRUE, fig.height=5, fig.width=7, message=FALSE}
+bsts.model$prior
+help(SdPrior)
+# paramètres pour la loi Gamma inverse:
+# prior.guess estimation deviation standard SdPrior
+# df degree of freedom (df) pour calculer le R^2 à priori
+# upper.limit limite haute pour l'écart-type des résiduss  
+# initial.value : valeur initiale de la chronique
+# fixed : si sigma est fixé   
+```
+
+```{r eval=TRUE, echo=TRUE, fig.height=5, fig.width=7, message=FALSE}
+### Get a suggested number of burn-ins
+burn <- SuggestBurn(0.1, bsts.model)
+
+### Predict
+p <- predict.bsts(bsts.model, horizon = 12, burn = burn, quantiles = c(.025, .975))
+
+### Actual versus predicted
+d2 <- data.frame(
+    # fitted values and predictions
+    c(10^as.numeric(-colMeans(bsts.model$one.step.prediction.errors[-(1:burn),])+y),  
+    10^as.numeric(p$mean)),
+    # actual data and dates 
+    as.numeric(AirPassengers),
+    as.Date(time(AirPassengers)))
+names(d2) <- c("Fitted", "Actual", "Date")
+
+### 95% forecast credible interval
+posterior.interval <- cbind.data.frame(
+  10^as.numeric(p$interval[1,]),
+  10^as.numeric(p$interval[2,]), 
+  subset(d2, year(Date)>1959)$Date)
+names(posterior.interval) <- c("LL", "UL", "Date")
+d3 <- left_join(d2, posterior.interval, by="Date")
+
+### MAPE
+MAPE <- filter(d2, year(Date)>1959) %>% summarise(MAPE=mean(abs(Actual-Fitted)/Actual))
+MAPE
+```
+
+Les prédictions du modèle pour les valeurs un temps en avant :
+
+```{r eval=TRUE, echo=FALSE, fig.height=3.5, fig.width=7, message=FALSE}
+plot(bsts.model,burn = SuggestBurn(.1, bsts.model))
+```
+
+La prédiction du modèle pour l'année 1960:
+
+```{r eval=TRUE, echo=FALSE, fig.height=3.5, fig.width=7, message=FALSE}
+ggplot(data=d3, aes(x=Date)) +
+  geom_line(aes(y=Actual, colour = "Actual"), size=1.2) +
+  geom_line(aes(y=Fitted, colour = "Fitted"), size=1.2, linetype=2) +
+  theme_bw() + theme(legend.title = element_blank()) + ylab("") + xlab("") +
+  geom_vline(xintercept=as.numeric(as.Date("1959-12-01")), linetype=2) + 
+  geom_ribbon(aes(ymin=LL, ymax=UL), fill="grey", alpha=0.5)
+```
+
+
+```{r eval=FALSE, fig.height=5, fig.width=7, message=FALSE, include=FALSE}
+# Observation des quantiles de la prédiction à postériori
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùùùù
+# matrice des MCMc draws
+credible.interval <- cbind.data.frame(
+  10^as.numeric(apply(p$distribution, 2,function(f){quantile(f,0.75)})),
+  10^as.numeric(apply(p$distribution, 2,function(f){median(f)})),
+  10^as.numeric(apply(p$distribution, 2,function(f){quantile(f,0.25)})),
+  subset(d3, year(Date)>1959)$Date)
+names(credible.interval) <- c("p75", "Median", "p25", "Date")
+hist(credible.interval$Median, freq = F)
+plot(credible.interval$Median,credible.interval$Date)
+AcfDist(p$distribution, lag.max = 20)
+boxplot(credible.interval)
+```
+
+Nous pouvons extraire du modèle la partie saisonnière et la tendance.
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE, fig.height=4}
+plot(bsts.model,"components")
+```
+
+
+```{r eval=FALSE, fig.height=3, message=FALSE, include=FALSE}
+res <- residuals(bsts.model)
+tsdisplay(res)
+```
+
+Nous pouvons regarder l'evolution des valeurs échantillonées pour des paramètres afin d'évaluer la convergence de la simulation. 
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE,fig.height=3.5}
+  plot(bsts.model$sigma.obs,type='l')
+```
+
+Cela justifie de prendre un burn-in de 10\% des tirages, soit 100 tirages.
+
+Nous pouvons également nous intéresser aux résidus du modèle et verifier qu'ils correspondent bien à un bruit blanc 
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE, fig.height=3.5}
+# affichage de la distribution à postériori des résidus du modèle 
+PlotBstsResiduals(bsts.model, burn = SuggestBurn(0.1, bsts.model), style = "dynamic" )
+```
+
+```{r eval=TRUE, echo=FALSE, fig.height=4, message=FALSE}
+library("forecast")
+# distribution des résidus à postériori 
+# d'après la doc les résidus sont obtenus par le filtre de kalman 
+r <- residuals(bsts.model,burn = SuggestBurn(0.1, bsts.model))#, mean.only = TRUE)
+
+hist(r, freq = F, col = "grey",main = "Histogramme de la distribution postérieure des résidus", xlab = "residus")
+curve(dnorm(x, mean = mean(r), sd = sd(r)), col = 2, add = TRUE)
+```
+
+On affiche le corrélograme de la distribution postérieure des résidus avec des boites à moustache pour chaque lag.
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE, fig.height=5}
+# qqline(r)
+AcfDist(r)
+```
+
+Pour finir nous pouvons observer les autocorrélations entre les étapes successives de l'échantilloneur pour une variable.
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE,fig.height=3.5}
+acf(bsts.model$sigma.obs,lag.max=50)
+```
+
+```{r eval=FALSE,fig.height=3, message=FALSE, include=FALSE}
+# PlotDynamicDistribution(r)
+#qqdist(r) # bsts method 
+# la droite de Henry des résidus 
+qqnorm(r)
+qqline(r)
+```
+
+L'erreur relative de prédiction est plus importante au final pour l'approche bayesienne pour cette chronique ce qui nous fait dire que pour cette chronique, l'approche bayesienne est moins efficace.
+
+Néanmois si on compare les intervalles de confiance des prediction à 95\% entre les deux approches pour une préition à long terme, nous pouvoir voir que l'intervale de confiance pour l'approche fréquentiste diverge beaucoup plus que celui correspondant à l'approche bayesienne.
+
+```{r echo=FALSE, fig.height=3, message=FALSE, warning=FALSE}
+p_long <- predict.bsts(bsts.model, horizon = 10*12, burn = burn, quantiles = c(.025, .975))
+
+### 95% forecast credible interval
+posterior.interval_long <- cbind.data.frame(
+  10^as.numeric(p_long$interval[1,]),
+  10^as.numeric(p_long$interval[2,]), 
+  seq(as.Date('1949-01-01'),by='months',length=10*12))
+names(posterior.interval_long) <- c("LL", "UL", "Date")
+
+ggplot(data=posterior.interval_long, aes(x=Date)) + 
+  geom_line(aes(y=LL), size=1.2, linetype=1) + 
+  geom_line(aes(y=UL), size=1.2, linetype=1) +
+  geom_ribbon(aes(ymin=LL, ymax=UL), fill="grey", alpha=0.3) + 
+  ggtitle("Intervalle de confiance de la prediction pour l'approche bayesienne")
+
+
+analyse = Arima(Y, lambda = 0, order = c(0,1,1), seasonal = c(0,1,1))
+pred = forecast(analyse, h=10*12, level=0.95,lambda=0)
+plot(pred, main="Intervalle de confiance de la prediction pour l'approche fréquentiste")
+```
+
+
+
+
+
+
+
+
+

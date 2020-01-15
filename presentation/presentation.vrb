@@ -1,0 +1,28 @@
+\begin{lstlisting}[
+        language=R,
+        basicstyle=\tiny, %or \small or \footnotesize etc.
+        caption={Implémentation Python},
+        captionpos=b,
+        numbers = none
+    ]
+def sample_x_given_y(y, mean, var):
+    mu = mean[0] + var[0,1] * math.sqrt(var[0, 0]) / math.sqrt(var[1, 1]) * (y - mean[1])
+    var = var[0, 0] * (1 - var[1,0])
+    return np.random.normal(mu, var)
+
+def sample_y_given_x(x, mean, var):
+    mu = mean[1] + var[0, 1] * math.sqrt(var[1, 1]) / math.sqrt(var[0, 0]) * (x - mean[0])
+    var = var[1, 1] * (1 - var[1,0])
+    return np.random.normal(mu, var)
+
+def gibbs_sampler(mean, var, N_iter):
+    samples = np.zeros((N_iter, 2))
+    y = mean[1]
+
+    for i in range(N_iter):
+        x = sample_x_given_y(y, mean, var)
+        y = sample_y_given_x(x, mean, var)
+        samples[i, :] = [x, y]
+
+    return samples
+\end{lstlisting}

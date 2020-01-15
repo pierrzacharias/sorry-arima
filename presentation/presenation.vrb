@@ -1,0 +1,10 @@
+\frametitle{How to use frame-breakings?}
+    In this template, and only this, I defined a "breakingframe" template frame that should not hold any useful information. The background of this frame is pinkish solid and it is not countable as a separate frame. You can use this as a transitioning page between different topics or for any funny funky stuff to release the tense of the poor audience during your presentation.
+    \vspace{10pt}
+    \begin{lstlisting}
+        \breakingframe{
+            Put your contents here, such as images, text ..etc. Be as silly as possible .. or not!
+        }
+    \end{lstlisting}
+    \vspace{10pt}
+    Look at the next slide, in code, as an example!

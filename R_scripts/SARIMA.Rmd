@@ -1,0 +1,90 @@
+---
+title: ""
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+\pagenumbering{gobble} 
+
+```{r setup, include=FALSE}
+# Sys.setenv(RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc")
+knitr::opts_chunk$set(echo = TRUE)
+setwd("/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/")
+```
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE, fig.width=2, fig.height=5, include=FALSE}
+library(lubridate)
+library(bsts)
+library(dplyr)
+library(ggplot2)
+library(forecast)
+library(Boom)
+#library(coe)
+library(lmtest)
+```
+
+
+```{r echo=FALSE, message=FALSE}
+AP =  AirPassengers
+plot(AirPassengers, type = "o", pch = 20)
+title(main = "chronique AirPassenger du package TSA")
+```
+
+L'affichage brut de la chronique indique un modèle multiplicatif avec une tendance, ce qui nous pousse à prendre le logarithme de la série pour avoir un modèle additif, et de la dériver pour ôter la tendance linéaire pour la modélisation.
+
+On modélise le logarithme de la chronique avec un processus SARIMA$[0,1,1][0,1,1]_{12}$
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE}
+AP <- window(AirPassengers, start=c(1949, 1), end=c(1959,12))
+#tsdisplay(AirPassengers)   
+analyse = Arima(AP, lambda = 0, order = c(0,1,1), seasonal = c(0,1,1))
+```
+
+Pour valider le modèle nous vérifions que les résidus sont des bruits blanc gaussiens.
+On regarde tout d'abord si on trouve des structures significatives dans les résidus, ce qui n'est pas le cas ici.
+
+```{r, echo = TRUE, fig.height=6, message=FALSE, eval=TRUE}
+tsdisplay(residuals(analyse))
+```
+
+On effectue ensuite un test du porte-manteau (Ljung-Box). On vérifie que les p-values sont bien supérieures au seuil 5\%.
+
+```{r, echo = TRUE, fig.height=7,message=FALSE, eval=TRUE}
+tsdiag(analyse)
+```
+
+On peut également regarder la droite de Henry pour vérifier le caractère gaussien des résidus. Si les résidus sont parfaitement gaussiens ils collent à la droite de Henry.
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE}
+qqnorm(residuals(analyse))
+qqline(residuals(analyse))
+```
+
+On peut ensuite vérifier la significativité des coefficients du modèle par un test de Wald sous l'hypothèse $H_0$ que les coefficients sont nuls.
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE}
+coeftest(analyse)
+```
+
+On peut finalement afficher l'estimation des coefficients du modèle avec les critère AIC et BIC ainsi que les pondérateurs pour mesurer l'erreur.
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE}
+summary(analyse)
+```
+
+On peut finalement afficher la prédiction pour l'année suivante avec l'intervalle de confiance à 95\%:
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE}
+pred = forecast(analyse, h=12, level=0.95,lambda = 0)
+plot(pred)
+```
+
+Pour mesurer l'erreur de prédiction on utilise le pourcentage d'erreur relative $\mathrm{MAPE}$
+$$\mathrm{MAPE}=\frac{100}{T} \sum_{t=1}^{T}\left|\frac{X_{t}-\hat{X}_{t-1}}{X_{t}}\right|\\ \text{ avec }\hat{X}_t \text{ la prediction de }X_t \text{ à partir de }X_{t-1} $$
+```{r, echo = TRUE, message=FALSE, eval=TRUE, fig.width=7, fig.height=5}
+Y_true <- window(AirPassengers, start=c(1960, 1))
+MAPE <- mean(abs(Y_true -pred$mean)/Y_true)
+MAPE
+```
+

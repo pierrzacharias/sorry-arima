@@ -1,0 +1,451 @@
+\documentclass{presentation_template}
+% To change the slides size go to EESD.cls file and edit the preamble as explained.
+
+% ---- Add your Meta-data to the PDF (Copyrights Kinda!) ----
+\hypersetup{
+  pdfinfo={
+    Title={Presentation: 3D finite element modeling of historical masonry walls},
+    Author={Mahmoud S. Shaqfa, Katrin Beyer},
+    Subject={EPFL - ENAC - EESD Lab},
+    Keywords={Stone masonry, Detailed micro-mechanical, 3D micro-structure}
+  }
+}
+
+% Important packages to be called
+\usepackage{subcaption} % for adding sub-figures
+\usepackage{graphicx}
+\usepackage{tikz} % for cool graphics and drawings
+\usepackage[absolute,overlay]{textpos} % To place the figures by coordinates (x,y) - Beamer doesn't support floats XD
+\usepackage{multicol} % To adjust items and stuff automatically in a number of a pre-specified columns
+\graphicspath{{Figures/}}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{lipsum} % Just a dummy text generator
+\usepackage{hyperref}
+% fonts packages
+\usepackage{ragged2e} % Justified typesetting
+\usepackage{multicol}
+
+% For References Only
+% \usepackage[style=authortitle,backend=bibtex]{biblatex}
+% \addbibresource{References.bib} % Call the references database
+% \AtBeginBibliography{\tiny} % Specify font size (Size matters)
+% \renewcommand{\footnotesize}{\tiny}
+
+% For adding code blocks
+\usepackage{listings}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{magenta},
+    commentstyle=\color{red},
+    rulecolor=\color{black},
+    numbers=left,
+    numberstyle=\tiny\color{black},
+    % framexleftmargin=15pt,
+    frame = single,
+}
+
+
+%.HHHHH....HHHH..HEEEEEEEEE.....AAAAAA.....ADDDDDDDDDD....DEEEEEEEEEE..RRRRRRRRRR....
+%.HHHHH....HHHH..HEEEEEEEEE.....AAAAAA.....ADDDDDDDDDDD...DEEEEEEEEEE..RRRRRRRRRR....
+%.HHHHH....HHHH..HEEEEEEEEE.....AAAAAAA....ADDDDDDDDDDDD..DEEEEEEEEEE..RRRRRRRRRRR...
+%.HHHHH....HHHH..HEEEE.........AAAAAAAA....ADDDD..DDDDDD..DEEEE........RRRR..RRRRR...
+%.HHHHH....HHHH..HEEEE.........AAAAAAAAA...ADDDD....DDDDD.DEEEE........RRRR..RRRRR...
+%.HHHHHHHHHHHHH..HEEEEEEEEE....AAAAAAAAA...ADDDD....DDDDD.DEEEEEEEEE...RRRRRRRRRR....
+%.HHHHHHHHHHHHH..HEEEEEEEEE...AAAAA.AAAA...ADDDD....DDDDD.DEEEEEEEEE...RRRRRRRRRR....
+%.HHHHHHHHHHHHH..HEEEEEEEEE...AAAA..AAAAA..ADDDD....DDDDD.DEEEEEEEEE...RRRRRRRRRR....
+%.HHHHH....HHHH..HEEEE.......EAAAAAAAAAAA..ADDDD....DDDDD.DEEEE........RRRRRRRRRR....
+%.HHHHH....HHHH..HEEEE.......EAAAAAAAAAAA..ADDDD..DDDDDD..DEEEE........RRRR..RRRRR...
+%.HHHHH....HHHH..HEEEEEEEEE..EAAAAAAAAAAAA.ADDDDDDDDDDDD..DEEEEEEEEEE..RRRR..RRRRR...
+%.HHHHH....HHHH..HEEEEEEEEE.EEAAA.....AAAA.ADDDDDDDDDDD...DEEEEEEEEEE..RRRR...RRRRR..
+%.HHHHH....HHHH..HEEEEEEEEE.EEAAA.....AAAAAADDDDDDDDDD....DEEEEEEEEEE..RRRR...RRRRR..
+\author{Pierre Gauthier}
+\title[Sorry ARIMA]{Sorry arima, I'm going Bayesian}
+
+\institute[]{{\'Ecole des Mines de Nancy}}
+\subject{Candidacy Exam}
+\date{May 2019}
+
+\begin{document}
+
+% To define the cover-page here .. I prefer this
+{
+
+%\usebackgroundtemplate{\includegraphics[width=1.\paperwidth, height=1.\paperheight]{cover169.pdf}} % To add a background for this slide XD - change it
+\coverpage{
+\titlepage{~}
+
+% To add additional text to the title components 
+{%\newline 
+Tuteur : Denis Villemonais
+}
+}   
+}
+\setbeamertemplate{logo}{} % To override the logo from the other slides and delete it completely
+
+
+
+% -----------------------Table of contents TOC Three Styles
+% Explicitly split the TOC if it's too long
+% \begin{frame}[allowframebreaks]{Outlines}
+% \tableofcontents[sections={1-3}] % Explicitly split TOC
+% \framebreak
+% \tableofcontents[sections={4-7}] % Explicitly split TOC
+% \end{frame}
+
+% % Just a normal TOC 
+% \begin{frame}[allowframebreaks]{Outlines}
+% \tableofcontents
+% \end{frame}
+
+% Use smart division for the TOC
+\begin{frame}{Sommaire}
+%\begin{multicols}{2}
+\tableofcontents
+%\end{multicols}
+\end{frame}
+
+% -----------------------Introduction
+\section{La méthode MCMC}
+%.MMMMMM....MMMMMM....CCCCCCCCC..CMMMMM....MMMMMM....CCCCCCCCC............1111111.....
+%.MMMMMM....MMMMMM...CCCCCCCCCCC.CMMMMMM...MMMMMM...CCCCCCCCCCC...........1111111.....
+%.MMMMMMM..MMMMMMM..CCCCCCCCCCCC.CMMMMMM..MMMMMMM..MCCCCCCCCCCC...........1111111.....
+%.MMMMMMM..MMMMMMM..CCCCC.....CC.CMMMMMM..MMMMMMM..MCCCC.....CC..............1111.....
+%.MMMMMMMMMMMMMMMM..CCCC.........CMMMMMMM.MMMMMMM..MCCC......................1111.....
+%.MMMMMMMMMMMMMMMM.MCCCC.........CMMMMMMMMMMMMMMM.MMCCC......................1111.....
+%.MMMM.MMMMMM.MMMM.MCCCC.........CMMMMMMMMMMMMMMM.MMCCC......................1111.....
+%.MMMM.MMMMMM.MMMM.MCCCC.........CMMMMMMMMMM.MMMM.MMCCC......................1111.....
+%.MMMM.MMMMMM.MMMM..CCCC.........CMMMM.MMMMM.MMMM..MCCC......................1111.....
+%.MMMM..MMMM..MMMM..CCCCC.....CC.CMMMM.MMMM..MMMM..MCCCC.....CC..............1111.....
+%.MMMM..MMMM..MMMM..CCCCCCCCCCCC.CMMMM.MMMM..MMMM..MCCCCCCCCCCC...........1111111111..
+%.MMMM........MMMM...CCCCCCCCCCC.CMMMM.......MMMM...CCCCCCCCCCC...........1111111111..
+%.MMMM........MMMM....CCCCCCCCC..CMMMM.......MMMM....CCCCCCCCC............1111111111..
+%\input{MCMC_1.tex}
+
+%.MMMMMM....MMMMMM....CCCCCCCCC..CMMMMM....MMMMMM....CCCCCCCCC..........._22222222....
+%.MMMMMM....MMMMMM...CCCCCCCCCCC.CMMMMMM...MMMMMM...CCCCCCCCCCC.........._222222222...
+%.MMMMMMM..MMMMMMM..CCCCCCCCCCCC.CMMMMMM..MMMMMMM..MCCCCCCCCCCC.........._2222222222..
+%.MMMMMMM..MMMMMMM..CCCCC.....CC.CMMMMMM..MMMMMMM..MCCCC.....CC.........._2....22222..
+%.MMMMMMMMMMMMMMMM..CCCC.........CMMMMMMM.MMMMMMM..MCCC........................22222..
+%.MMMMMMMMMMMMMMMM.MCCCC.........CMMMMMMMMMMMMMMM.MMCCC........................2222...
+%.MMMM.MMMMMM.MMMM.MCCCC.........CMMMMMMMMMMMMMMM.MMCCC......................222222...
+%.MMMM.MMMMMM.MMMM.MCCCC.........CMMMMMMMMMM.MMMM.MMCCC.....................222222....
+%.MMMM.MMMMMM.MMMM..CCCC.........CMMMM.MMMMM.MMMM..MCCC....................222222.....
+%.MMMM..MMMM..MMMM..CCCCC.....CC.CMMMM.MMMM..MMMM..MCCCC.....CC...........222222......
+%.MMMM..MMMM..MMMM..CCCCCCCCCCCC.CMMMM.MMMM..MMMM..MCCCCCCCCCCC.........._2222222222..
+%.MMMM........MMMM...CCCCCCCCCCC.CMMMM.......MMMM...CCCCCCCCCCC.........._2222222222..
+%.MMMM........MMMM....CCCCCCCCC..CMMMM.......MMMM....CCCCCCCCC..........._2222222222..
+\begin{frame}
+    \frametitle{Application numérique : Une alternative à l'algorithme E-M pour le mélange de gaussiennes}
+
+    \'Echantillon $\boldsymbol{x}=\left(\boldsymbol{x}_{1}, \ldots, \boldsymbol{x}_{N}\right)$ suivant une loi 
+    $f\left(\boldsymbol{x}_{i}, \theta\right)$ 
+    avec des variables latentes $\boldsymbol{z}=\left(\boldsymbol{z}_{1}, \boldsymbol{z}_{2}, \dots, \boldsymbol{z}_{n}\right)$\\
+    
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            
+            Maximisation de $L(\boldsymbol{\theta} ; \mathbf{X})=p(\mathbf{x} | \boldsymbol{\theta})=\int p(\mathbf{x}, \mathbf{z} | \boldsymbol{\theta}) d \mathbf{Z}$
+            $\begin{aligned}
+            & E\left[L(\mathbf{x} ; \boldsymbol{\theta}) | \boldsymbol{\theta}^{(c)}\right]=E\left[L((\mathbf{x}, \mathbf{z}) ; \boldsymbol{\theta}) | \boldsymbol{\theta}^{(c)}\right]-E\left[\sum_{i=1}^{n} \log f\left(z_{i} | \boldsymbol{x}_{i}, \boldsymbol{\theta}\right) | \boldsymbol{\theta}^{(c)}\right]\\
+            &L(\mathbf{x} ; \boldsymbol{\theta})=Q\left(\boldsymbol{\theta} ; \boldsymbol{\theta}^{(c)}\right)-H\left(\boldsymbol{\theta} ; \boldsymbol{\theta}^{(c)}\right)
+            \end{aligned}$
+    
+            $
+            \boldsymbol{\theta}^{(c+1)}=\arg \max _{\boldsymbol{\theta}}\left(Q\left(\boldsymbol{\theta}, \boldsymbol{\theta}^{(c)}\right)\right)
+            $ \hfill fait tendre la suite $L\left(\mathbf{x} ; \boldsymbol{\theta}^{(c+1)}\right)$ vers un max local  
+            $$
+            p\left(\mathcal{C}_{1} | x\right)=\frac{p\left(\mathcal{C}_{1}\right) p\left(x | \mathcal{C}_{1}\right)}{p\left(\mathcal{C}_{1}\right) p\left(x | \mathcal{C}_{1}\right)+p\left(\mathcal{C}_{2}\right) p\left(x | \mathcal{C}_{2}\right)}
+            $$
+    \end{column}
+
+\begin{column}{0.2\textwidth}  %%<--- here
+    \vspace{-0.5cm}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{Figures/the_element.jpg}
+    \end{figure}
+\end{column}
+\end{columns}
+
+
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Application : mélange de gaussiennes}
+
+\vspace{-0.5cm}
+\begin{columns}
+    \begin{column}{0.7\textwidth}
+        
+        \begin{itemize}
+            \item Les données $\mathbf{x}$ viennent de gaussiennes $\{ C_1,\ldots, C_M \}$ 
+            %\vspace{0.5cm}
+            \item $\boldsymbol{z}_{i} \in \{1,\ldots, m \}$ si un individu $i$ vient de $C_1, \ldots, C_M$
+            $$ 
+                \boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=j\right) \sim \mathcal{N}\left(\mu_{j}, \sigma_{j}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=j\right)=\pi_{j} 
+            $$
+            \item \textbf{E-M} : maximisation de \\
+            
+            $$\begin{aligned}
+                &\ell_{\theta}(x)=\sum_{n=1}^{N} \log \left(\sum_{j=1}^{M} \pi_{j}\ \mathcal{N}_{\mu_{j}, \sigma_{j}^2}\left(x_{n}\right)\right) \\
+                &\theta=\left(\pi, \mu, \sigma^{2}\right) 
+            \end{aligned} $$
+        \end{itemize}
+        
+    \end{column}
+    \begin{column}{0.3\textwidth}  %%<--- here
+        \vspace{-0.5cm}
+        \begin{figure}
+            \includegraphics[width=\textwidth]{Figures/mix_gaussienne.png}
+            \caption{\tiny Mélange de deux gausiennes [F. Sur, Introduction à l'apprentissage automatique]}
+        \end{figure}
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{Application : \'Echantillonneur de Gibbs pour le mélange de 2 gaussiennes}
+%     Pour 2 gaussiennes:
+%     $\left\{\begin{aligned}
+%         &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=1\right) \sim \mathcal{N}\left(\mu_{1}, \sigma_{1}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=1\right)=\pi_{1}\\
+%         &\boldsymbol{x}_i |\left(\boldsymbol{z}_{i}=2\right) \sim \mathcal{N}\left(\mu_{2}, \sigma_{2}^{2}\right) \quad \mathbb{P}\left(\boldsymbol{z}_{i}=2\right)=\pi_{2} = 1- \pi_{1}
+%     \end{aligned}\right.$
+%         \vspace{0.4cm}
+%         \begin{itemize}
+        
+%         \item On veut obtenir $\Theta = (\boldsymbol{z}, \mu) = (\boldsymbol{z_1}, \ldots,\boldsymbol{z_1},  \mu)$ \hfill($\pi, \sigma$ fixés à $\hat{\pi}, \hat{\sigma}$)
+%         \vspace{0.2cm}
+%         \item \textcolor{beamerfooter3}{\Large $\boldsymbol{z} | \mu$} :  utiliser $\mathbb{P}\left(\boldsymbol{z}_{i}=j | \mu, \boldsymbol{x} \right)=
+%         { \displaystyle \frac{
+%             \hat{\pi}_{j}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{j}, \hat{\sigma}_{j})
+%             }{
+%                 \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}, \hat{\sigma}_{1})  +  
+%                 \hat{\pi}_{2}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{2}, \hat{\sigma}_{2})
+%             }} \quad j \in \{ 1,2\}
+%             $              
+%         \item \textcolor{beamerfooter3}{\Large $\mu | \boldsymbol{z}$} :
+        
+%         \begin{columns}[T]
+            
+%             \begin{column}{0.3\textwidth}  %%<--- here
+%                 \centering
+%                 {\small (à priori)} \\
+%                 \vspace{0.1cm}
+%                 $\begin{aligned}
+%                     \boldsymbol{x_i} | \mu,\boldsymbol{z_i} = j & \sim \mathcal{N}\left(\mu_{j}, 1 / \hat{\tau}_j \right) \\
+%                     \mu_j & \sim {\mathcal{N}}\left(\mu_{0}, 1 / \tau_{0}\right) \\
+%                 \end{aligned}$ \\
+%                 \vspace{0.2cm}
+%                 {\tiny $\left(\tau_j = 1 / \sigma_j^2, \ \bar{x}=\frac{1}{N} \sum_{i=0}^{N}{x_i}\right)$}
+%             \end{column}
+%             \begin{column}{0.3\textwidth}
+%                 \centering
+%                 {\small (à postériori)} \\
+%                 \vspace{0.2cm}
+%                 $\begin{aligned}
+%                     p(\mu_j | \boldsymbol{z}_i, \mathbf{x}) & \propto p(\boldsymbol{x} | \mu,\boldsymbol{z_i} = j) p(\mu_j)  \\
+%                     & \sim {\mathcal{N}}( \mu_0^{\prime}, 1 / \tau_0^{\prime}) 
+%                 \end{aligned}$
+%             \end{column}
+%             \begin{column}{0.4\textwidth}  %%<--- here
+%                 \centering
+%                 {\small (= maj des coefs)} \\
+%                 \vspace{0.1cm}
+%                 $\begin{aligned}
+%                     \tau^{\prime}_{j_0} &= \tau_0 + N \hat{\tau}_j \\
+%                     \mu_{j_0}^{\prime} &= \frac{N\ \hat{\tau}_j\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau}_j+\tau_{0}} 
+%                 \end{aligned}$
+%             \end{column}     
+%             % \begin{column}{0.14\textwidth}  %%<--- here
+%             %     \begin{flushleft}
+                    
+%             %     {\tiny }
+%             %     \end{flushleft}
+%             % \end{column}     
+%         \end{columns}
+% \end{itemize}
+    
+% \end{frame}
+
+\begin{frame}
+    \small
+    \begin{exampleblock}{\'Echantilloneur de Gibbs pour une mixture gaussienne}
+    \begin{enumerate}
+        \item Prendre les valeurs initiales $\Theta_0 = (\boldsymbol{z}^{(0)}, \mu_{1}^{(0)}, \mu_{2}^{(0)})$, $\mu_0, \tau_0$
+        \item Pour t de  à ...
+            \begin{itemize}
+                \item Pour $i$ de 1 à $N$ tirer \\
+                {\addtolength{\leftskip}{2cm} 
+                    $\boldsymbol{z}_i^{(t+1)} \in \{1, 2 \}$ avec $\mathbb{P}(\boldsymbol{z}_i^{(t+1)}=1) = { \displaystyle \frac{
+                    \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}^{(t)}, \hat{\sigma}_{1})
+                    }{
+                        \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}^{(t)}, \hat{\sigma}_{1})  +  
+                        \hat{\pi}_{2}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{2}^{(t)}, \hat{\sigma}_{2})
+                    }}$
+                }
+                \item Pour $j \in \{ 1,2\} $ \\
+                Estimer 
+                $\tau^{\prime}_{j_0} = \tau_0 + N \hat{\tau_j} \quad \displaystyle
+                \mu_{j_0}^{\prime} = \frac{N\ \hat{\tau_j}\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau_j}+\tau_{0}} 
+                $ \\
+                Tirer $\mu_{j}^{(t+1)} \sim \mathcal{N}\left(\mu_{j_0}^{\prime}, 1 / \tau^{\prime}_{j_0}\right)$
+            \end{itemize}
+    \end{enumerate}
+   
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    %\frametitle{Implémentation sous R}
+    \begin{lstlisting}[
+        language=R,
+        basicstyle=\tiny, %or \small or \footnotesize etc.
+        caption={Implémentation Python},
+        captionpos=b,
+        numbers = none
+    ]
+def sample_x_given_y(y, mean, var):
+    mu = mean[0] + var[0,1] * math.sqrt(var[0, 0]) / math.sqrt(var[1, 1]) * (y - mean[1])
+    var = var[0, 0] * (1 - var[1,0])
+    return np.random.normal(mu, var)
+
+def sample_y_given_x(x, mean, var):
+    mu = mean[1] + var[0, 1] * math.sqrt(var[1, 1]) / math.sqrt(var[0, 0]) * (x - mean[0])
+    var = var[1, 1] * (1 - var[1,0])
+    return np.random.normal(mu, var)
+
+def gibbs_sampler(mean, var, N_iter):
+    samples = np.zeros((N_iter, 2))
+    y = mean[1]
+
+    for i in range(N_iter):
+        x = sample_x_given_y(y, mean, var)
+        y = sample_y_given_x(x, mean, var)
+        samples[i, :] = [x, y]
+
+    return samples
+\end{lstlisting}
+\end{frame}
+
+
+\section{exemple Utilisation template}
+
+\begin{frame}
+\frametitle{Blocky block}
+\begin{block}{Just a Block}
+\lipsum[1]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Blocky block}
+\begin{exampleblock}{Example Block}
+\lipsum[1]
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Blocky block}
+\begin{alertblock}{Alert Block}
+\lipsum[1]
+\end{alertblock}
+\end{frame}
+
+\subsection{Frames breaker}
+\begin{frame}[fragile]
+\frametitle{How to use frame-breakings?}
+    In this template, and only this, I defined a "breakingframe" template frame that should not hold any useful information. The background of this frame is pinkish solid and it is not countable as a separate frame. You can use this as a transitioning page between different topics or for any funny funky stuff to release the tense of the poor audience during your presentation.
+    \vspace{10pt}
+    \begin{lstlisting}
+        \breakingframe{
+            Put your contents here, such as images, text ..etc. Be as silly as possible .. or not!
+        }
+    \end{lstlisting}
+    \vspace{10pt}
+    Look at the next slide, in code, as an example!
+\end{frame}
+
+\begin{frame}[t]{Motivation: \textcolor{myviolet}{{\textbf{Q1}}}}\vspace{10pt}
+    \begin{textblock*}{13cm}(1.7cm,2.7cm)
+    \begin{enumerate}[<+->]
+    \setlength\itemsep{10pt}
+        \item Stone masonry walls are usually not homogeneous through the thickness
+        \item Leaf-separation effects on the strength capacity
+        \item In-plane and out-of-plane behaviours interaction
+        \item Internal cracking onsets and 3D crack paths (cannot be captured experimentally)
+    \end{enumerate}
+    \end{textblock*}
+\end{frame}
+
+\subsection{Methodology}
+\begin{frame}[t]{The study main phases}\vspace{10pt}
+    \begin{textblock*}{13cm}(3.8cm,0.7cm)
+        \includegraphics[height = 0.6\textwidth]{univ.png}
+    \end{textblock*}
+\end{frame}
+
+
+\breakingframe{
+\begin{textblock*}{13cm}(3.5cm,4cm)
+\Huge\textbf{\textcolor{black}{How to arrange stones?}}
+\end{textblock*}
+}
+
+\begin{frame}[t]{Objective function}\vspace{1pt}
+\begin{columns}
+\begin{column}{0.49\textwidth}
+\begin{overprint}
+\onslide<1->\begin{block}{Packing objective}
+    \begin{equation*}
+        \text{Minimize}~F(\vec{X_i})_{i}~=~\mid\mid \vec{S}_{i} - \vec{S}_{i-1} \mid\mid
+    \end{equation*}
+    \begin{equation*}
+        Fitness\Big(F(\vec{X_i})\Big)_{i} = F(\vec{X_i})_{i}(1 + \xi_{1} P_A)^{\xi_{2}}
+    \end{equation*}
+\end{block}
+\end{overprint}
+\end{column}
+\end{columns}
+\begin{textblock*}{3.2cm}(12.5cm,1.5cm)
+    \tiny{
+    \begin{itemize}
+        \item $S_{i}, S_{i-1}$: locations of $i$ and $i-1$ stones
+        \item $\xi_{1}$: penalty multiplier
+        \item $\xi_{2}$: penalty exponent
+        \item $P_{A}$: penalties summation
+    \end{itemize}
+    }
+\end{textblock*}
+\begin{textblock*}{3cm}(12.5cm,1.55cm)
+    %\includegraphics[height = 0.6\linewidth]{brace.pdf}
+\end{textblock*}
+\end{frame}
+
+% -----------------------References
+% Thank you slide should be here
+\breakingframe{
+\begin{textblock*}{10cm}(3.2cm,4cm)
+\Huge\textbf{\textcolor{black}{Merci de votre attention}}
+\end{textblock*}
+}
+% -----------------------References
+% \section{Bibliography}
+% % \begin{frame}[allowframebreaks]{\\References}\vspace{4pt}
+% \begin{frame}{References}\vspace{4pt}
+% %\tiny{\printbibliography}
+% \end{frame}
+% \normalsize
+
+\end{document}β
