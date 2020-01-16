@@ -4,7 +4,6 @@
 set.seed(150)
 
 library(coda)
-library(bquote)
 
   Z_given_mu <- function(X,Z,mu,pi_1){
     # Z variables latentes
@@ -56,7 +55,7 @@ library(bquote)
     pi_1 <- sum(Z==1)/length(X)
     pi_1_vect <- pi_1
     
-    mu_prior = list(mean = 0, precision = 0.1)
+    mu_prior = list(mean = 0, precision = 0.5)
     
     # vecteur pour stocker les iterations
     Z_matrix <- Z
@@ -112,48 +111,94 @@ rmix = function(n,pi,mu,s){
   x = rnorm(n,mu[z],s[z])
   return(x)
 }
-X = rmix(n=1000,pi=c(0.5,0.5),mu=c(-2,2),s=c(1,1))
-hist(X,breaks=100,freq=FALSE)
+X = rmix(n=1000,pi=c(0.5,0.5),mu=c(-2,3),s=c(1,sqrt(0.5)))
 
+png(filename="/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/MCMC_numeric/simu_gaussian/data.png",
+    width=600, height=350)
+hist(X,breaks=100,freq=FALSE)
+dev.off()
 # other data
 #data(faithful)
 #X <- faithful$eruptions
 #hist(X,breaks=100,freq=FALSE)
 
+N_simu = 1000
 
-
-res <- echantillonneur_gibbs(X,2000)
+res <- echantillonneur_gibbs(X,N_simu)
 
 plot(res$mu_1,ylim=c(-4,4),type="l",col="red",xlab = "nombre de simulations", 
-     ylab = expression(paste("", mu, 1)))
+     ylab = "tirages")
 lines(res$mu_2,col="blue")
-legend(res$mu_1,legend=c(expression(paste("Phase Angle ", mu_1)), expression(paste("Phase Angle ", mu_1))), col=c("red", "blue"))
+legend("bottomleft", 
+       legend = c(expression(paste("", mu, 1)), expression(paste("", mu, 2))), 
+       col = c("red", 
+               "blue"), 
+       pch = c(0,0), 
+       bty = "n", 
+       pt.cex = 0, 
+       cex = 2, 
+       text.col =  c("red", 
+                     "blue"), 
+       horiz = F , 
+       # inset = c(0.1, 0.1)
+       )
+
+legend(1:length(res$mu_1),legend=c(expression(paste("estimation de la densité de ", mu,1)), expression(paste("Phase Angle ", mu_1))), col=c("red", "blue"))
 
 
 burn = 100
 
 Z <- as.mcmc(res$Z)
-mu_1 <- as.mcmc(res$mu_1[-(1:burn)])
+mu_1 <- as.mcmc(res$mu_1) 
 mu_2 <- as.mcmc(res$mu_2) 
 sigma_1 <- as.mcmc(res$sigma_1)
 sigma_2 <- as.mcmc(res$sigma_2)
 
-pi_1_vect <- as.mcmc(res$pi_1)
-plot(mu_1)
-mean(mu_1)
-mu_1est <- mean(as.mcmc(res$mu_1[-(1:burn)]))
-mu_1est
+plot(as.mcmc(res$mu_1[-(1:burn)]))
 
-mu_2est <- mean(mu_2[50:200])
-sigma_1est <- mean(sigma_1[50:200])
-sigma_2est <- mean(sigma_2[50:200])
-pi_1est <- mean(pi_1_vect[50:200])
+
+####### trace 
+png(filename="/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/MCMC_numeric/simu_gaussian/mu_plot_dens.png",
+      width=600, height=350)
+densplot(as.mcmc(res$mu_1[-(1:burn)]),main = expression(paste("estimation de la densité de ", mu,1)))
+dev.off()
+
+png(filename="/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/MCMC_numeric/simu_gaussian/mu_plot_trac.png",
+    width=600, height=350)
+traceplot(as.mcmc(res$mu_1[-(1:burn)]),main = expression(paste("trace de ", mu,1)))
+dev.off()
+
+#### estimateur 
+mu_1_mean <- mean(as.mcmc(res$mu_1[-(1:burn)])) 
+mu_1_mean
+mu_2_mean <- mean(as.mcmc(res$mu_2[-(1:burn)]))
+mu_2_mean
+
+HPDinterval(as.mcmc(res$mu_1[-(1:burn)]), 0.95)
+
+HPDinterval(as.mcmc(res$mu_2[-(1:burn)]), 0.95)
+
+gelman.plot(as.mcmc(res$mu_1[100:400]),as.mcmc(res$mu_1[500:800]))
+
+pi_1_vect <- as.mcmc(res$pi_1)
+plot(as.mcmc(res$mu_1[-(1:burn)]))
+mu_1 <- as.mcmc(res$mu_1) 
+mean(mu_1)
+
+
+sigma_1_mean <- mean(sigma_1[-(1:burn)])
+sigma_2_mean <- mean(sigma_2[-(1:burn)])
+pi_1_mean <- mean(pi_1_vect[-(1:burn)])
 hist(X,breaks=100,freq=FALSE)
-curve(pi_1est*dnorm(x,mu_1est,sigma_1est),add=TRUE,col='red')
-curve((1-pi_1est)*dnorm(x,mu_2est,sigma_2est),add=TRUE,col='blue')
+curve(pi_1_mean*dnorm(x,mu_1_mean,sigma_1_mean),add=TRUE,col='red')
+curve((1-pi_1_mean)*dnorm(x,mu_2_mean,sigma_2_mean),add=TRUE,col='blue')
 
 ################### intervale de confiances
-quantile(res$mu[-(1:10)],c(0.05,0.95))
+plot(quantile(res$mu_1[-(1:burn)],c(0.05,0.95)))
+
+1.96 * sd(res$mu_1[-(1:burn)]) / sqrt(N_simu)
+
+boxplot(res$mu_1[-(1:burn)])
 
 
 
