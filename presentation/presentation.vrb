@@ -1,10 +1,87 @@
-\frametitle{How to use frame-breakings?}
-    In this template, and only this, I defined a "breakingframe" template frame that should not hold any useful information. The background of this frame is pinkish solid and it is not countable as a separate frame. You can use this as a transitioning page between different topics or for any funny funky stuff to release the tense of the poor audience during your presentation.
-    \vspace{10pt}
-    \begin{lstlisting}
-        \breakingframe{
-            Put your contents here, such as images, text ..etc. Be as silly as possible .. or not!
-        }
-    \end{lstlisting}
-    \vspace{10pt}
-    Look at the next slide, in code, as an example!
+\vspace{-0.2cm}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+
+            \begin{lstlisting}[
+                basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+                captionpos=b,
+                numbers = none
+            ]
+Z_given_mu <- function(X,Z,mu,pi_1){
+    # Z variables latentes
+
+    remove_i <- (c(1:length(X)) !=i) # enleve variable i
+    estimate_sigma_1 <- sd(X[(remove_i & Z == 1)]) # classe 1
+    estimate_sigma_2 <- sd(X[(remove_i & Z == 2)]) # classe 2
+
+    for (i in 1:length(Z)){
+
+        proba1 <- pi_1 * dnorm(X[i],mu[1],estimate_sigma_1) /
+            (pi_1 * dnorm(X[i],mu[1],estimate_sigma_1) +
+            (1-pi_1) * dnorm(X[i],mu[2],estimate_sigma_2))
+
+        Z[i] = sample(1:2, size=1,prob=c(proba1, 1-proba1),
+            replace=TRUE)
+    }
+    return(Z)
+}
+        \end{lstlisting}
+
+        \end{column}
+        \begin{column}{0.5\textwidth}  %%<--- here
+
+            \begin{lstlisting}[
+                basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+                captionpos=b,
+                numbers = none
+            ]
+mu_given_Z = function(X, Z, mu_prior){
+    # Z variables latentes
+    # mu_prior contient parametres loi a priori de mu
+
+    mu = rep(0,2) ; sigma = rep(0,2)
+
+    for(j in 1:2){
+
+        sample_j_size = sum(Z==j)
+        sample_j_mean = mean(X[Z==j])
+        sigma[j] = sd(X[Z==j]) ; precision_j = 1 / sigma[j]^2
+
+        precision_post = sample_j_size * precision_j +
+            mu_prior$precision
+
+            mean_post = (sample_j_mean * sample_j_size *
+            precision_j + mu_prior$mean *
+            mu_prior$precision ) / precision_post
+
+        mu[j] = rnorm(1,mean_post,sqrt(1/precision_post)) # on tire mu selon la loi normale a posteriori
+    }
+    return(list(mu = mu, sigma = sigma))
+    }
+        \end{lstlisting}
+    \end{column}
+\end{columns}
+\vspace{-0.3cm}
+\begin{lstlisting}[
+    basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+    captionpos=b,
+    caption={\tiny Implémentation en R},
+    numbers = none
+]
+echantillonneur_gibbs <- function(X,N_simu){
+    # X sont les donnees
+    # initalisation
+    .
+    .
+
+    for (k in 1:N_simu){
+
+        Z <- Z_given_mu(X,Z,mu,pi_1) ; param_post <- mu_given_Z(X, Z, mu_prior)
+        mu = param_post$mu
+    .
+    .
+    .
+    }
+    return(list(Z, mu_1, mu_2))
+}
+\end{lstlisting}

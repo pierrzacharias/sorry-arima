@@ -273,7 +273,7 @@ Tuteur : Denis Villemonais
 
 \begin{frame}
     \frametitle{Loi à postériori de $\beta$: \textit{spike-and-slab prior}}
-
+    \vspace{-1cm}
     \begin{columns}
         \begin{column}{0.8\textwidth}
             \vspace{-1cm}
@@ -294,18 +294,56 @@ Tuteur : Denis Villemonais
 \end{columns}
 \vspace{-1.5cm}
        \setbeamertemplate{itemize items}[triangle]
+     
+           
+    
         \begin{itemize}
             \item  $\displaystyle p(\gamma)=\prod_{k=1}^{N} \pi^{\gamma_k}(1-\pi)^{1-\gamma_k}$, $\gamma_k \in \{0,1 \}$ {\small $N = Card(\mathbf{x})$} 
-            \item $p\left(\beta, \gamma, \sigma_{\varepsilon}^{2}\right)=p\left(\beta_{\gamma} | \gamma, \sigma_{\varepsilon}^{2}\right) p\left(\sigma_{\varepsilon}^{2} | \gamma\right) p(\gamma)$ 
+            \item \'A priori : $p\left(\beta, \gamma, \sigma_{\varepsilon}^{2}\right)=p\left(\beta_{\gamma} | \gamma, \sigma_{\varepsilon}^{2}\right) p\left(\sigma_{\varepsilon}^{2} | \gamma\right) p(\gamma)$ 
             \item $
                 \beta_{\gamma}\left|\sigma_{\epsilon}^{2}, \gamma \sim \mathcal{N}\left(b_{\gamma},
                 \sigma_{\epsilon}^{2}\left(\Omega_{\gamma}^{-1}\right)^{-1}\right) \quad \sigma_{\epsilon}^{2}\right| \gamma \sim IG\left(\frac{\nu}{2}, \frac{s s}{2}\right)
-                $
+                $ \\ \vspace{0.2cm}
+                {\centering \tiny
+                papramètres à priori : $v$ nombre de paramètres,$\quad$ $\frac{s s}{v}=\left(1-R^{2}\right) s_{y}^{2}$, $\quad$         $\Omega^{-1} \propto X^{T} X$ }
         \end{itemize}
+    
         \setbeamertemplate{itemize items}[square]
    
-    
-    On utilise les propriété des lois conjugé pour obtenir les loi à postériori $\beta_{\gamma} | \sigma_{\epsilon}, \gamma, \mathbf{y}^{*}$, $\gamma_\epsilon^{2} | \gamma, \mathbf{y}^{*}$,$\gamma | \mathbf{y}^{*}$
+    \begin{itemize}
+        
+        \item On utilise les propriété des lois conjugé pour obtenir les loi à postériori \\ \vspace{0.1cm}
+        {\centering
+        $\beta_{\gamma} | \sigma_{\epsilon}, \gamma, \mathbf{y}^{*} \quad \quad \gamma_\epsilon^{2} | \gamma, \mathbf{y}^{*} \quad \quad \gamma | \mathbf{y}^{*}$}
+        \item Intérêt 
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \small
+\begin{exampleblock}{\'Echantilloneur de Gibbs pour BSTS : SSVS algorithm}
+    \setbeamertemplate{itemize items}[triangle]
+    $\Theta=\left(\gamma, \beta, \sigma_{\varepsilon}^{2}, \sigma_{v}^{2}, \sigma_{u}^{2}\right)$
+    \begin{itemize}
+    \item Choisir paramètres à priori $v$, $R^2$, $s_y^2$
+    \item Tirer $\gamma, \beta, \sigma_{\varepsilon}^{2}, \sigma_{v}^{2}, \sigma_{u}^{2}$ \hfill $\sigma_u^2$,$\sigma_u^2$,$\sigma_w^2$ sont tiré selon la loi $. | \gamma \sim I G\left(\frac{\nu}{2}, \frac{s s}{2}\right)
+    \end{itemize}
+Sur $1, \ldots$:
+\begin{enumerate}
+\item Avec le filtre de Kalman on simule les état latents $\alpha$ depuis $p\left(\alpha | y, \gamma, \beta, \sigma_{\varepsilon}^{2}, \sigma_{v}^{2}, \sigma_{u}^{2}\right)$
+\item On simule $\sigma_u^2$ et $\sigma_v^2$ avec la distribution postérieure $p\left(\frac{1}{\sigma_{u}^{2}}, \frac{1}{\sigma_{v}^{2}} | y, \alpha, \beta, \sigma_{\varepsilon}^{2}\right)$
+\item On simule $\beta$ et $\sigma_\epsilon^2$ avec la distribution postérieure $p\left(\beta, \sigma_{\varepsilon}^{2} | y, \alpha, \sigma_{u}^{2}, \sigma_{v}^{2}\right)$
+\item Retour à la première étape.
+\end{enumerate}
+
+$\sigma_u^2$,$\sigma_u^2$,$\sigma_w^2$ sont tiré selon la loi $. | \gamma \sim I G\left(\frac{\nu}{2}, \frac{s s}{2}\right)
+$
+
+Le modèle final est la moyenne des modèles $\left(\gamma, \beta, \sigma_{\varepsilon}^{2}, \sigma_{v}^{2}, \sigma_{u}^{2}\right)_t$ 
+ainsi tirés.
+
+\end{exampleblock}
 
 \end{frame}
 
@@ -335,11 +373,8 @@ Tuteur : Denis Villemonais
 
 
 
-
-
-
-
 \begin{frame}
+    \normalsize
     \frametitle{Conclusion}
 
     \begin{itemize}
@@ -347,106 +382,128 @@ Tuteur : Denis Villemonais
     \end{itemize}
 \end{frame}
 
-\section{exemple Utilisation template}
-
-\begin{frame}
-\frametitle{Blocky block}
-\begin{block}{Just a Block}
-\lipsum[1]
-\end{block}
-\end{frame}
-
-\begin{frame}
-\frametitle{Blocky block}
-\begin{exampleblock}{Example Block}
-\lipsum[1]
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}
-\frametitle{Blocky block}
-\begin{alertblock}{Alert Block}
-\lipsum[1]
-\end{alertblock}
-\end{frame}
-
-\subsection{Frames breaker}
-\begin{frame}[fragile]
-\frametitle{How to use frame-breakings?}
-    In this template, and only this, I defined a "breakingframe" template frame that should not hold any useful information. The background of this frame is pinkish solid and it is not countable as a separate frame. You can use this as a transitioning page between different topics or for any funny funky stuff to release the tense of the poor audience during your presentation.
-    \vspace{10pt}
-    \begin{lstlisting}
-        \breakingframe{
-            Put your contents here, such as images, text ..etc. Be as silly as possible .. or not!
-        }
-    \end{lstlisting}
-    \vspace{10pt}
-    Look at the next slide, in code, as an example!
-\end{frame}
-
-\begin{frame}[t]{Motivation: \textcolor{myviolet}{{\textbf{Q1}}}}\vspace{10pt}
-    \begin{textblock*}{13cm}(1.7cm,2.7cm)
-    \begin{enumerate}[<+->]
-    \setlength\itemsep{10pt}
-        \item Stone masonry walls are usually not homogeneous through the thickness
-        \item Leaf-separation effects on the strength capacity
-        \item In-plane and out-of-plane behaviours interaction
-        \item Internal cracking onsets and 3D crack paths (cannot be captured experimentally)
-    \end{enumerate}
-    \end{textblock*}
-\end{frame}
-
-\subsection{Methodology}
-\begin{frame}[t]{The study main phases}\vspace{10pt}
-    \begin{textblock*}{13cm}(3.8cm,0.7cm)
-        \includegraphics[height = 0.6\textwidth]{univ.png}
-    \end{textblock*}
-\end{frame}
-
-
 \breakingframe{
 \begin{textblock*}{13cm}(3.5cm,4cm)
-\Huge\textbf{\textcolor{black}{How to arrange stones?}}
-\end{textblock*}
-}
-
-\begin{frame}[t]{Objective function}\vspace{1pt}
-\begin{columns}
-\begin{column}{0.49\textwidth}
-\begin{overprint}
-\onslide<1->\begin{block}{Packing objective}
-    \begin{equation*}
-        \text{Minimize}~F(\vec{X_i})_{i}~=~\mid\mid \vec{S}_{i} - \vec{S}_{i-1} \mid\mid
-    \end{equation*}
-    \begin{equation*}
-        Fitness\Big(F(\vec{X_i})\Big)_{i} = F(\vec{X_i})_{i}(1 + \xi_{1} P_A)^{\xi_{2}}
-    \end{equation*}
-\end{block}
-\end{overprint}
-\end{column}
-\end{columns}
-\begin{textblock*}{3.2cm}(12.5cm,1.5cm)
-    \tiny{
-    \begin{itemize}
-        \item $S_{i}, S_{i-1}$: locations of $i$ and $i-1$ stones
-        \item $\xi_{1}$: penalty multiplier
-        \item $\xi_{2}$: penalty exponent
-        \item $P_{A}$: penalties summation
-    \end{itemize}
-    }
-\end{textblock*}
-\begin{textblock*}{3cm}(12.5cm,1.55cm)
-    %\includegraphics[height = 0.6\linewidth]{brace.pdf}
-\end{textblock*}
-\end{frame}
-
-% -----------------------References
-% Thank you slide should be here
-\breakingframe{
-\begin{textblock*}{10cm}(3.2cm,4cm)
+    
 \Huge\textbf{\textcolor{black}{Merci de votre attention}}
 \end{textblock*}
 }
+
+
+% //.TTTTTTTTTTTTTEEEEEEEEEEE..MMMMM.....MMMMM...PPPPPPPPPP...LLLL..........AAAAAA..AAATTTTTTTTTT.TEEEEEEEEE..
+% //.TTTTTTTTTTTTTEEEEEEEEEEE..MMMMMM...MMMMMM...PPPPPPPPPPP..LLLL..........AAAAAA..AAATTTTTTTTTT.TEEEEEEEEE..
+% //.TTTTTTTTTTTTTEEEEEEEEEEE..MMMMMM...MMMMMM...PPPPPPPPPPP..LLLL..........AAAAAAA.AAATTTTTTTTTT.TEEEEEEEEE..
+% //.....TTTT.....EEEEE........MMMMMMM.MMMMMMM...PPPP...PPPP..LLLL.........AAAAAAAA......TTTT.....TEEEE.......
+% //.....TTTT.....EEEEE........MMMMMMM.MMMMMMM...PPPP...PPPP..LLLL.........AAAAAAAAA.....TTTT.....TEEEE.......
+% //.....TTTT.....EEEEEEEEEE...MMMMMMMMMMMMMMM...PPPP.PPPPPP..LLLL.........AAAAAAAAA.....TTTT.....TEEEEEEEEE..
+% //.....TTTT.....EEEEEEEEEE...MMMMMMMMMMMMMMM...PPPPPPPPPPP..LLLL........AAAAA.AAAA.....TTTT.....TEEEEEEEEE..
+% //.....TTTT.....EEEEEEEEEE...MMMMMMMMMM.MMMM...PPPPPPPPPP...LLLL........AAAA..AAAAA....TTTT.....TEEEEEEEEE..
+% //.....TTTT.....EEEEE........MMMM.MMMMM.MMMM...PPPPPPPPP....LLLL.......AAAAAAAAAAAA....TTTT.....TEEEE.......
+% //.....TTTT.....EEEEE........MMMM.MMMMM.MMMM...PPPP.........LLLL.......AAAAAAAAAAAA....TTTT.....TEEEE.......
+% //.....TTTT.....EEEEEEEEEEE..MMMM..MMM..MMMM...PPPP.........LLLLLLLLLL.AAAAAAAAAAAAA...TTTT.....TEEEEEEEEE..
+% //.....TTTT.....EEEEEEEEEEE..MMMM.......MMMM...PPPP.........LLLLLLLLLLLAAAA.....AAAA...TTTT.....TEEEEEEEEE..
+% //.....TTTT.....EEEEEEEEEEE..MMMM.......MMMM...PPPP.........LLLLLLLLLLLAAAA.....AAAAA..TTTT.....TEEEEEEEEE..
+
+% \section{exemple Utilisation template}
+
+% \begin{frame}
+% \frametitle{Blocky block}
+% \begin{block}{Just a Block}
+% \lipsum[1]
+% \end{block}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Blocky block}
+% \begin{exampleblock}{Example Block}
+% \lipsum[1]
+% \end{exampleblock}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Blocky block}
+% \begin{alertblock}{Alert Block}
+% \lipsum[1]
+% \end{alertblock}
+% \end{frame}
+
+% \subsection{Frames breaker}
+% \begin{frame}[fragile]
+% \frametitle{How to use frame-breakings?}
+%     In this template, and only this, I defined a "breakingframe" template frame that should not hold any useful information. The background of this frame is pinkish solid and it is not countable as a separate frame. You can use this as a transitioning page between different topics or for any funny funky stuff to release the tense of the poor audience during your presentation.
+%     \vspace{10pt}
+%     \begin{lstlisting}
+%         \breakingframe{
+%             Put your contents here, such as images, text ..etc. Be as silly as possible .. or not!
+%         }
+%     \end{lstlisting}
+%     \vspace{10pt}
+%     Look at the next slide, in code, as an example!
+% \end{frame}
+
+% \begin{frame}[t]{Motivation: \textcolor{myviolet}{{\textbf{Q1}}}}\vspace{10pt}
+%     \begin{textblock*}{13cm}(1.7cm,2.7cm)
+%     \begin{enumerate}[<+->]
+%     \setlength\itemsep{10pt}
+%         \item Stone masonry walls are usually not homogeneous through the thickness
+%         \item Leaf-separation effects on the strength capacity
+%         \item In-plane and out-of-plane behaviours interaction
+%         \item Internal cracking onsets and 3D crack paths (cannot be captured experimentally)
+%     \end{enumerate}
+%     \end{textblock*}
+% \end{frame}
+
+% \subsection{Methodology}
+% \begin{frame}[t]{The study main phases}\vspace{10pt}
+%     \begin{textblock*}{13cm}(3.8cm,0.7cm)
+%         \includegraphics[height = 0.6\textwidth]{univ.png}
+%     \end{textblock*}
+% \end{frame}
+
+
+% \breakingframe{
+% \begin{textblock*}{13cm}(3.5cm,4cm)
+% \Huge\textbf{\textcolor{black}{How to arrange stones?}}
+% \end{textblock*}
+% }
+
+% \begin{frame}[t]{Objective function}\vspace{1pt}
+% \begin{columns}
+% \begin{column}{0.49\textwidth}
+% \begin{overprint}
+% \onslide<1->\begin{block}{Packing objective}
+%     \begin{equation*}
+%         \text{Minimize}~F(\vec{X_i})_{i}~=~\mid\mid \vec{S}_{i} - \vec{S}_{i-1} \mid\mid
+%     \end{equation*}
+%     \begin{equation*}
+%         Fitness\Big(F(\vec{X_i})\Big)_{i} = F(\vec{X_i})_{i}(1 + \xi_{1} P_A)^{\xi_{2}}
+%     \end{equation*}
+% \end{block}
+% \end{overprint}
+% \end{column}
+% \end{columns}
+% \begin{textblock*}{3.2cm}(12.5cm,1.5cm)
+%     \tiny{
+%     \begin{itemize}
+%         \item $S_{i}, S_{i-1}$: locations of $i$ and $i-1$ stones
+%         \item $\xi_{1}$: penalty multiplier
+%         \item $\xi_{2}$: penalty exponent
+%         \item $P_{A}$: penalties summation
+%     \end{itemize}
+%     }
+% \end{textblock*}
+% \begin{textblock*}{3cm}(12.5cm,1.55cm)
+%     %\includegraphics[height = 0.6\linewidth]{brace.pdf}
+% \end{textblock*}
+% \end{frame}
+
+% % -----------------------References
+% % Thank you slide should be here
+% \breakingframe{
+% \begin{textblock*}{10cm}(3.2cm,4cm)
+% \Huge\textbf{\textcolor{black}{Merci de votre attention}}
+% \end{textblock*}
+% }
 % -----------------------References
 % \section{Bibliography}
 % % \begin{frame}[allowframebreaks]{\\References}\vspace{4pt}

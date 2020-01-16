@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  16 JAN 2020 17:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  16 JAN 2020 18:02
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -948,7 +948,8 @@ File: lstlang2.sty 2019/09/10 1.8c listings language file
 File: lstlang3.sty 2019/09/10 1.8c listings language file
 ) (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-) (./presentation.aux)
+)
+No file presentation.aux.
 \openout1 = `presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
@@ -965,7 +966,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
 LaTeX Font Info:    ... okay on input line 78.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
 LaTeX Font Info:    ... okay on input line 78.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1037,7 +1037,6 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 78.
 LaTeX Info: Redefining \pageref on input line 78.
 LaTeX Info: Redefining \nameref on input line 78.
- (./presentation.out) (./presentation.out)
 \@outlinefile=\write5
 \openout5 = `presentation.out'.
 
@@ -1116,13 +1115,14 @@ LaTeX Info: Redefining \up on input line 78.
 \c@lstlisting=\count364
  ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 78.
- (./presentation.nav)
-<Figures/logo.png, id=36, 225.84375pt x 225.84375pt>
+
+No file presentation.nav.
+<Figures/logo.png, id=16, 225.84375pt x 225.84375pt>
 File: Figures/logo.png Graphic file (type png)
 <use Figures/logo.png>
 Package pdftex.def Info: Figures/logo.png  used on input line 91.
 (pdftex.def)             Requested size: 40.68457pt x 40.68723pt.
-<Figures/univ.png, id=37, 180.675pt x 180.675pt>
+<Figures/univ.png, id=17, 180.675pt x 180.675pt>
 File: Figures/univ.png Graphic file (type png)
 <use Figures/univ.png>
 Package pdftex.def Info: Figures/univ.png  used on input line 91.
@@ -1137,7 +1137,9 @@ Overfull \hbox (4.69629pt too wide) has occurred while \output is active
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Figures/logo.png> <./Figures/univ.png>] (./presentation.toc) [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Figures/logo.png> <./Figures/univ.png>]
+No file presentation.toc.
+[2
 
 ]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 210.
@@ -1152,7 +1154,7 @@ LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inpu
  (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
-<Figures/hmc.png, id=69, 853.1875pt x 383.4325pt>
+<Figures/hmc.png, id=38, 853.1875pt x 383.4325pt>
 File: Figures/hmc.png Graphic file (type png)
 <use Figures/hmc.png>
 Package pdftex.def Info: Figures/hmc.png  used on input line 210.
@@ -1173,7 +1175,7 @@ Overfull \vbox (18.84464pt too high) detected at line 210
 ] [5
 
 ]
-<Figures/kalman_filter.png, id=102, 1480.78218pt x 647.41875pt>
+<Figures/kalman_filter.png, id=75, 1480.78218pt x 647.41875pt>
 File: Figures/kalman_filter.png Graphic file (type png)
 <use Figures/kalman_filter.png>
 Package pdftex.def Info: Figures/kalman_filter.png  used on input line 272.
@@ -1185,50 +1187,66 @@ Overfull \vbox (6.03738pt too high) detected at line 272
 [6
 
  <./Figures/kalman_filter.png (PNG copy)>]
-<Figures/pike.png, id=111, 1349.04pt x 963.6pt>
+<Figures/pike.png, id=84, 1349.04pt x 963.6pt>
 File: Figures/pike.png Graphic file (type png)
 <use Figures/pike.png>
-Package pdftex.def Info: Figures/pike.png  used on input line 310.
+Package pdftex.def Info: Figures/pike.png  used on input line 321.
 (pdftex.def)             Requested size: 79.66649pt x 56.90189pt.
  [7
 
- <./Figures/pike.png>] [8
+ <./Figures/pike.png>]
+
+/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/presentation/presentation.tex:348: LaTeX Error: Command \end{itemize} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.348 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/presentation/presentation.tex:348: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.348 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/presentation/presentation.tex:348: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.348 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/presentation/presentation.tex:348: Missing $ inserted.
+<inserted text> 
+                $
+l.348 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[8
 
 ] [9
 
 ] [10
-
-] [11
-
-]
-\openout4 = `presentation.vrb'.
-
- (./presentation.vrb
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4.
- (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)) [12
-
-] [13
-
-] [14
-
-] [15
-
-] [16
-
-]
-File: Figures/univ.png Graphic file (type png)
-<use Figures/univ.png>
-Package pdftex.def Info: Figures/univ.png  used on input line 404.
-(pdftex.def)             Requested size: 221.93668pt x 221.93375pt.
- [17
-
-] [18
-
-] [19
-
-] [20
 
 ]
 \tf@nav=\write6
@@ -1240,31 +1258,37 @@ Package pdftex.def Info: Figures/univ.png  used on input line 404.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 458.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 458.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 515.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 515.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 458.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 458.
-Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 32FCE4F39A224F08FD94DA0E0F8DB877;345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 515.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 515.
 
+
+Package rerunfilecheck Warning: File `presentation.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `presentation.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  C3BFDA7C0025837E906FD33D5A7B0B8C;157.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 37073 strings out of 492167
- 699467 string characters out of 6131559
- 1067653 words of memory out of 5000000
- 40789 multiletter control sequences out of 15000+600000
- 560368 words of font info for 89 fonts, out of 8000000 for 9000
+ 35445 strings out of 492167
+ 677214 string characters out of 6131559
+ 1048653 words of memory out of 5000000
+ 39202 multiletter control sequences out of 15000+600000
+ 559741 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,18n,69p,866b,2332s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on presentation.pdf (20 pages, 529406 bytes).
+ 65i,18n,69p,866b,812s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb>
+Output written on presentation.pdf (10 pages, 480979 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 269 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 232 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

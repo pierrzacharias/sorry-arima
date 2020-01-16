@@ -20,33 +20,12 @@
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\slideentry {2}{0}{6}{8/8}{}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@sectionpages {3}{8}}
-\headcommand {\beamer@subsectionpages {3}{8}}
-\headcommand {\sectionentry {3}{exemple Utilisation template}{9}{exemple Utilisation template}{0}}
-\headcommand {\slideentry {3}{0}{1}{9/9}{}{0}}
+\headcommand {\slideentry {2}{0}{7}{9/9}{}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {3}{0}{2}{10/10}{}{0}}
+\headcommand {\slideentry {2}{0}{8}{10/10}{}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {3}{0}{3}{11/11}{}{0}}
-\headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionpages {9}{11}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{12}{Frames breaker}}
-\headcommand {\slideentry {3}{1}{1}{12/12}{Frames breaker}{0}}
-\headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {3}{1}{2}{13/16}{Frames breaker}{0}}
-\headcommand {\beamer@framepages {13}{16}}
-\headcommand {\beamer@subsectionpages {12}{16}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{17}{Methodology}}
-\headcommand {\slideentry {3}{2}{1}{17/17}{Methodology}{0}}
-\headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {3}{2}{2}{18/18}{Methodology}{0}}
-\headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {3}{2}{3}{19/19}{Methodology}{0}}
-\headcommand {\beamer@framepages {19}{19}}
-\headcommand {\slideentry {3}{2}{4}{20/20}{Methodology}{0}}
-\headcommand {\beamer@framepages {20}{20}}
-\headcommand {\beamer@partpages {1}{20}}
-\headcommand {\beamer@subsectionpages {17}{20}}
-\headcommand {\beamer@sectionpages {9}{20}}
-\headcommand {\beamer@documentpages {20}}
-\headcommand {\gdef \inserttotalframenumber {14}}
+\headcommand {\beamer@partpages {1}{10}}
+\headcommand {\beamer@subsectionpages {3}{10}}
+\headcommand {\beamer@sectionpages {3}{10}}
+\headcommand {\beamer@documentpages {10}}
+\headcommand {\gdef \inserttotalframenumber {8}}

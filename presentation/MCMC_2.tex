@@ -13,11 +13,11 @@
             L(\mathbf{x} ; \boldsymbol{\theta})=Q\left(\boldsymbol{\theta} ; \boldsymbol{\theta}^{(c)}\right)-H\left(\boldsymbol{\theta} ; \boldsymbol{\theta}^{(c)}\right)
             $$
 
-            $$$\left\{\begin{aligned}
+            $$\left\{\begin{aligned}
                 Q\left(\boldsymbol{\theta} ; \boldsymbol{\theta}^{(c)}\right) &=E \left[L((\mathbf{x}, \mathbf{z}) ; \boldsymbol{\theta}) | \boldsymbol{\theta}^{(c)}\right] \\
                 H\left(\boldsymbol{\theta} ; \boldsymbol{\theta}^{(c)}\right) &= E\left[\sum_{i=1}^{n} \log f\left(z_{i} | \boldsymbol{x}_{i}, \boldsymbol{\theta}\right) | \boldsymbol{\theta}^{(c)}\right]
-            \end{aligned}\right.$
-            $$
+            \end{aligned}\right.$$
+            $
             \boldsymbol{\theta}^{(c+1)}=\arg \max _{\boldsymbol{\theta}}\left(Q\left(\boldsymbol{\theta}, \boldsymbol{\theta}^{(c)}\right)\right)
             $ fait tendre la suite $L\left(\mathbf{x} ; \boldsymbol{\theta}^{(c+1)}\right)$ vers un max local  
             

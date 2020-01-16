@@ -1,6 +1,3 @@
 \babel@toc {french}{}
 \beamer@sectionintoc {1}{La méthode MCMC}{3}{0}{1}
 \beamer@sectionintoc {2}{Approche bayésienne pour la modélisation des series temporelles}{3}{0}{2}
-\beamer@sectionintoc {3}{exemple Utilisation template}{9}{0}{3}
-\beamer@subsectionintoc {3}{1}{Frames breaker}{12}{0}{3}
-\beamer@subsectionintoc {3}{2}{Methodology}{17}{0}{3}
