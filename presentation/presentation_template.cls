@@ -1,7 +1,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{presentation_template}
-\LoadClass[aspectratio = 169, 11pt, xcolor={usenames,dvipsnames}]{beamer}
+\LoadClass[aspectratio = 169, 11pt, xcolor={table,usenames,dvipsnames}]{beamer}
 % I used 16:9 aspect ratio of the slides; To get the default (4:3) remove the specifier above in-between the [aspectratio = 169] or simply change the value to 43
 % Other possible values are: 1610, 149, 54, 43 and 32.
 % \documentclass[aspectratio=1610]{beamer}

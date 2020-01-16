@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  15 JAN 2020 21:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  16 JAN 2020 13:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -576,7 +576,8 @@ File: pppdftex.def 2019/09/21 v0.5n Pdfpages driver for pdfTeX (AM)
 )
 \c@theorem=\count161
 \c@corollary=\count162
- (./rapport_v1.aux)
+
+No file rapport_v1.aux.
 \openout1 = `rapport_v1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
@@ -602,7 +603,6 @@ Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
 (french.ldf)             reported on input line 69.
 LaTeX Info: Redefining \up on input line 69.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -676,7 +676,6 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 69.
 LaTeX Info: Redefining \pageref on input line 69.
 LaTeX Info: Redefining \nameref on input line 69.
- (./rapport_v1.out) (./rapport_v1.out)
 \@outlinefile=\write4
 \openout4 = `rapport_v1.out'.
 
@@ -687,7 +686,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<logos/logo.png, id=91, 225.84375pt x 225.84375pt>
+<logos/logo.png, id=31, 225.84375pt x 225.84375pt>
 File: logos/logo.png Graphic file (type png)
 <use logos/logo.png>
 Package pdftex.def Info: logos/logo.png  used on input line 82.
@@ -702,14 +701,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 83.
  (/usr/share/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
-<logos/univ.png, id=92, 180.675pt x 180.675pt>
+<logos/univ.png, id=32, 180.675pt x 180.675pt>
 File: logos/univ.png Graphic file (type png)
 <use logos/univ.png>
 Package pdftex.def Info: logos/univ.png  used on input line 86.
 (pdftex.def)             Requested size: 71.13188pt x 71.13287pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/logo.png> <./logos/univ.png>] (./rapport_v1.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logos/logo.png> <./logos/univ.png>]
 \tf@toc=\write5
 \openout5 = `rapport_v1.toc'.
 
@@ -724,8 +723,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
 
+
+LaTeX Warning: Citation `sorryarima' on page 2 undefined on input line 127.
+
+
+LaTeX Warning: Citation `pedictbayesian' on page 2 undefined on input line 128.
+
 [2]
-<logos/airmiles.png, id=144, 966.61125pt x 657.2053pt>
+
+LaTeX Warning: Citation `courssur' on page 3 undefined on input line 146.
+
+
+LaTeX Warning: Reference `airmiles' on page 3 undefined on input line 150.
+
+<logos/airmiles.png, id=61, 966.61125pt x 657.2053pt>
 File: logos/airmiles.png Graphic file (type png)
 <use logos/airmiles.png>
 Package pdftex.def Info: logos/airmiles.png  used on input line 154.
@@ -735,8 +746,15 @@ Overfull \hbox (31.96773pt too wide) detected at line 171
 [][]
  []
 
-[3 <./logos/airmiles.png>] [4] [5]
-<../R_scripts/SARIMA.pdf, id=202, 614.295pt x 794.97pt>
+[3 <./logos/airmiles.png>]
+
+LaTeX Warning: Reference `AR' on page 4 undefined on input line 222.
+
+
+LaTeX Warning: Reference `ma' on page 4 undefined on input line 246.
+
+[4] [5]
+<../R_scripts/SARIMA.pdf, id=119, 614.295pt x 794.97pt>
 File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf  used on input line 353.
@@ -745,7 +763,7 @@ File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf  used on input line 353.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../R_scripts/SARIMA.pdf, id=205, page=1, 614.295pt x 794.97pt>
+<../R_scripts/SARIMA.pdf, id=122, page=1, 614.295pt x 794.97pt>
 File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf, page 1>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page1 used on input line 353.
@@ -768,7 +786,7 @@ File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page1 used on input line 353.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [7 <../R_scripts/SARIMA.pdf>]
-<../R_scripts/SARIMA.pdf, id=261, page=2, 614.295pt x 794.97pt>
+<../R_scripts/SARIMA.pdf, id=180, page=2, 614.295pt x 794.97pt>
 File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf, page 2>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page2 used on input line 353.
@@ -782,7 +800,7 @@ File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page2 used on input line 353.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [8 <../R_scripts/SARIMA.pdf>]
-<../R_scripts/SARIMA.pdf, id=275, page=3, 614.295pt x 794.97pt>
+<../R_scripts/SARIMA.pdf, id=195, page=3, 614.295pt x 794.97pt>
 File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf, page 3>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page3 used on input line 353.
@@ -796,7 +814,7 @@ File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page3 used on input line 353.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [9 <../R_scripts/SARIMA.pdf>]
-<../R_scripts/SARIMA.pdf, id=289, page=4, 614.295pt x 794.97pt>
+<../R_scripts/SARIMA.pdf, id=209, page=4, 614.295pt x 794.97pt>
 File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf, page 4>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page4 used on input line 353.
@@ -810,7 +828,7 @@ File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page4 used on input line 353.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [10 <../R_scripts/SARIMA.pdf>]
-<../R_scripts/SARIMA.pdf, id=306, page=5, 614.295pt x 794.97pt>
+<../R_scripts/SARIMA.pdf, id=226, page=5, 614.295pt x 794.97pt>
 File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 <use ../R_scripts/SARIMA.pdf, page 5>
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page5 used on input line 353.
@@ -824,6 +842,18 @@ File: ../R_scripts/SARIMA.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/SARIMA.pdf , page5 used on input line 353.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [11 <../R_scripts/SARIMA.pdf>] [12]
+/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/repport/rapport_v1.tex:440: Missing } inserted.
+<inserted text> 
+                }
+l.440 Soit $(X_n)_{n \in \mathbb{N}$
+                                     une suite de variable aléatoire défin...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 440--442
 
  []
@@ -839,17 +869,70 @@ Overfull \hbox (33.88861pt too wide) in paragraph at lines 480--482
  []
 
 [13]
+
+LaTeX Warning: Citation `wiki' on page 14 undefined on input line 504.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 524--526
 
  []
 
-[14] [15] [16]
+
+LaTeX Warning: Citation `coursgibbs' on page 14 undefined on input line 532.
+
+[14]
+
+LaTeX Warning: Reference `obeservationeq' on page 15 undefined on input line 579.
+
+
+LaTeX Warning: Reference `transitioneq' on page 15 undefined on input line 580.
+
+
+LaTeX Warning: Citation `pedictbayesian' on page 15 undefined on input line 585.
+
+
+LaTeX Warning: Reference `modelebayes' on page 15 undefined on input line 598.
+
+
+LaTeX Warning: Reference `obeservationeq' on page 15 undefined on input line 598.
+
+
+LaTeX Warning: Citation `kapman1993' on page 15 undefined on input line 598.
+
+[15]
+
+LaTeX Warning: Citation `kalman' on page 16 undefined on input line 642.
+
+
+LaTeX Warning: Reference `obeservationeq' on page 16 undefined on input line 649.
+
+
+LaTeX Warning: Reference `transitioneq' on page 16 undefined on input line 649.
+
+
+LaTeX Warning: Citation `kalman' on page 16 undefined on input line 665.
+
+[16]
+
+LaTeX Warning: Reference `obeservationeq' on page 17 undefined on input line 720.
+
+
+LaTeX Warning: Reference `forward' on page 17 undefined on input line 721.
+
+
+LaTeX Warning: Reference `backward' on page 17 undefined on input line 721.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 749--751
 
  []
 
-[17] [18] [19]
-<../R_scripts/Bayesian_Aipassenger.pdf, id=468, 614.295pt x 794.97pt>
+[17]
+
+LaTeX Warning: Reference `obeservationeq' on page 18 undefined on input line 780.
+
+[18] [19]
+<../R_scripts/Bayesian_Aipassenger.pdf, id=373, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf  used on input line 835.
@@ -858,7 +941,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf  used on input line 835.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../R_scripts/Bayesian_Aipassenger.pdf, id=471, page=1, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=376, page=1, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 1>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page1 used on input line 835.
@@ -888,7 +971,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf  used on input line 837.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../R_scripts/Bayesian_Aipassenger.pdf, id=507, page=2, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=413, page=2, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 2>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page2 used on input line 837.
@@ -910,7 +993,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page2 used on input line 837.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [21 <../R_scripts/Bayesian_Aipassenger.pdf>]
-<../R_scripts/Bayesian_Aipassenger.pdf, id=520, page=3, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=426, page=3, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 3>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page3 used on input line 837.
@@ -924,7 +1007,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page3 used on input line 837.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [22 <../R_scripts/Bayesian_Aipassenger.pdf>]
-<../R_scripts/Bayesian_Aipassenger.pdf, id=548, page=4, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=455, page=4, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 4>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page4 used on input line 837.
@@ -938,7 +1021,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page4 used on input line 837.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [23 <../R_scripts/Bayesian_Aipassenger.pdf>]
-<../R_scripts/Bayesian_Aipassenger.pdf, id=569, page=5, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=476, page=5, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 5>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page5 used on input line 837.
@@ -952,7 +1035,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page5 used on input line 837.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [24 <../R_scripts/Bayesian_Aipassenger.pdf>]
-<../R_scripts/Bayesian_Aipassenger.pdf, id=593, page=6, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=499, page=6, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 6>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page6 used on input line 837.
@@ -966,7 +1049,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page6 used on input line 837.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [25 <../R_scripts/Bayesian_Aipassenger.pdf>]
-<../R_scripts/Bayesian_Aipassenger.pdf, id=618, page=7, 614.295pt x 794.97pt>
+<../R_scripts/Bayesian_Aipassenger.pdf, id=524, page=7, 614.295pt x 794.97pt>
 File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 <use ../R_scripts/Bayesian_Aipassenger.pdf, page 7>
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page7 used on input line 837.
@@ -980,7 +1063,7 @@ File: ../R_scripts/Bayesian_Aipassenger.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Bayesian_Aipassenger.pdf , page7 used on input line 837.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [26 <../R_scripts/Bayesian_Aipassenger.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=632, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=538, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf  used on input line 846.
@@ -989,7 +1072,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf  used on input line 846.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../R_scripts/Full_bayesian_model.pdf, id=635, page=1, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=541, page=1, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 1>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page1 used on input line 846.
@@ -1019,7 +1102,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf  used on input line 848.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../R_scripts/Full_bayesian_model.pdf, id=676, page=2, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=583, page=2, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 2>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page2 used on input line 848.
@@ -1041,7 +1124,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page2 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [28 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=690, page=3, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=598, page=3, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 3>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page3 used on input line 848.
@@ -1055,7 +1138,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page3 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [29 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=706, page=4, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=614, page=4, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 4>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page4 used on input line 848.
@@ -1069,7 +1152,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page4 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [30 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=720, page=5, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=628, page=5, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 5>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page5 used on input line 848.
@@ -1083,7 +1166,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page5 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [31 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=743, page=6, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=650, page=6, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 6>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page6 used on input line 848.
@@ -1097,7 +1180,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page6 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [32 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=756, page=7, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=663, page=7, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 7>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page7 used on input line 848.
@@ -1111,7 +1194,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page7 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [33 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/Full_bayesian_model.pdf, id=781, page=8, 614.295pt x 794.97pt>
+<../R_scripts/Full_bayesian_model.pdf, id=688, page=8, 614.295pt x 794.97pt>
 File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 <use ../R_scripts/Full_bayesian_model.pdf, page 8>
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page8 used on input line 848.
@@ -1125,7 +1208,7 @@ File: ../R_scripts/Full_bayesian_model.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/Full_bayesian_model.pdf , page8 used on input line 848.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [34 <../R_scripts/Full_bayesian_model.pdf>]
-<../R_scripts/try_arima.pdf, id=802, 614.295pt x 794.97pt>
+<../R_scripts/try_arima.pdf, id=709, 614.295pt x 794.97pt>
 File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf  used on input line 850.
@@ -1134,7 +1217,7 @@ File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf  used on input line 850.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<../R_scripts/try_arima.pdf, id=805, page=1, 614.295pt x 794.97pt>
+<../R_scripts/try_arima.pdf, id=712, page=1, 614.295pt x 794.97pt>
 File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf, page 1>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page1 used on input line 850.
@@ -1156,7 +1239,7 @@ File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page1 used on input line 850.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [35 <../R_scripts/try_arima.pdf>]
-<../R_scripts/try_arima.pdf, id=832, page=2, 614.295pt x 794.97pt>
+<../R_scripts/try_arima.pdf, id=739, page=2, 614.295pt x 794.97pt>
 File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf, page 2>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page2 used on input line 850.
@@ -1170,7 +1253,7 @@ File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page2 used on input line 850.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [36 <../R_scripts/try_arima.pdf>]
-<../R_scripts/try_arima.pdf, id=849, page=3, 614.295pt x 794.97pt>
+<../R_scripts/try_arima.pdf, id=757, page=3, 614.295pt x 794.97pt>
 File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf, page 3>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page3 used on input line 850.
@@ -1184,7 +1267,7 @@ File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page3 used on input line 850.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [37 <../R_scripts/try_arima.pdf>]
-<../R_scripts/try_arima.pdf, id=863, page=4, 614.295pt x 794.97pt>
+<../R_scripts/try_arima.pdf, id=771, page=4, 614.295pt x 794.97pt>
 File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf, page 4>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page4 used on input line 850.
@@ -1197,29 +1280,43 @@ File: ../R_scripts/try_arima.pdf Graphic file (type pdf)
 <use ../R_scripts/try_arima.pdf, page 4>
 Package pdftex.def Info: ../R_scripts/try_arima.pdf , page4 used on input line 850.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [38 <../R_scripts/try_arima.pdf>] [39] [40] (./rapport_v1.bbl) [41]
+ [38 <../R_scripts/try_arima.pdf>] [39] [40]
+No file rapport_v1.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1012.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1012.
- (./rapport_v1.aux)
+(./rapport_v1.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1012.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1012.
-Package rerunfilecheck Info: File `rapport_v1.out' has not changed.
-(rerunfilecheck)             Checksum: 1CC45D3E512BAEC467D1AB90D68BDC53;1341.
+
+
+Package rerunfilecheck Warning: File `rapport_v1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `rapport_v1.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  1CC45D3E512BAEC467D1AB90D68BDC53;1341.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1012.
  ) 
 Here is how much of TeX's memory you used:
- 22249 strings out of 492167
- 397361 string characters out of 6131559
- 499960 words of memory out of 5000000
- 26011 multiletter control sequences out of 15000+600000
- 20736 words of font info for 47 fonts, out of 8000000 for 9000
+ 22191 strings out of 492167
+ 396565 string characters out of 6131559
+ 498105 words of memory out of 5000000
+ 25980 multiletter control sequences out of 15000+600000
+ 20035 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,19n,83p,576b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on rapport_v1.pdf (42 pages, 2096486 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on rapport_v1.pdf (41 pages, 2069389 bytes).
 PDF statistics:
- 1059 PDF objects out of 1200 (max. 8388607)
- 813 compressed objects within 9 object streams
- 177 named destinations out of 1000 (max. 500000)
- 444 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 948 PDF objects out of 1000 (max. 8388607)
+ 705 compressed objects within 8 object streams
+ 161 named destinations out of 1000 (max. 500000)
+ 324 words of extra memory for PDF output out of 10000 (max. 10000000)
 
