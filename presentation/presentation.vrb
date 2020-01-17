@@ -1,87 +1,41 @@
-\vspace{-0.2cm}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
+\frametitle{Application sur le jeu de données CO2}
 
-            \begin{lstlisting}[
-                basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
-                captionpos=b,
-                numbers = none
-            ]
-Z_given_mu <- function(X,Z,mu,pi_1){
-    # Z variables latentes
-
-    remove_i <- (c(1:length(X)) !=i) # enleve variable i
-    estimate_sigma_1 <- sd(X[(remove_i & Z == 1)]) # classe 1
-    estimate_sigma_2 <- sd(X[(remove_i & Z == 2)]) # classe 2
-
-    for (i in 1:length(Z)){
-
-        proba1 <- pi_1 * dnorm(X[i],mu[1],estimate_sigma_1) /
-            (pi_1 * dnorm(X[i],mu[1],estimate_sigma_1) +
-            (1-pi_1) * dnorm(X[i],mu[2],estimate_sigma_2))
-
-        Z[i] = sample(1:2, size=1,prob=c(proba1, 1-proba1),
-            replace=TRUE)
-    }
-    return(Z)
-}
-        \end{lstlisting}
-
-        \end{column}
-        \begin{column}{0.5\textwidth}  %%<--- here
-
-            \begin{lstlisting}[
-                basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
-                captionpos=b,
-                numbers = none
-            ]
-mu_given_Z = function(X, Z, mu_prior){
-    # Z variables latentes
-    # mu_prior contient parametres loi a priori de mu
-
-    mu = rep(0,2) ; sigma = rep(0,2)
-
-    for(j in 1:2){
-
-        sample_j_size = sum(Z==j)
-        sample_j_mean = mean(X[Z==j])
-        sigma[j] = sd(X[Z==j]) ; precision_j = 1 / sigma[j]^2
-
-        precision_post = sample_j_size * precision_j +
-            mu_prior$precision
-
-            mean_post = (sample_j_mean * sample_j_size *
-            precision_j + mu_prior$mean *
-            mu_prior$precision ) / precision_post
-
-        mu[j] = rnorm(1,mean_post,sqrt(1/precision_post)) # on tire mu selon la loi normale a posteriori
-    }
-    return(list(mu = mu, sigma = sigma))
-    }
-        \end{lstlisting}
-    \end{column}
-\end{columns}
-\vspace{-0.3cm}
-\begin{lstlisting}[
+  $\rightarrow$ Le meilleur modèle est un $AR[2]$ au numérateur et un polynome de degré 4 au dénominateur
+  \begin{lstlisting}[
     basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
     captionpos=b,
-    caption={\tiny Implémentation en R},
     numbers = none
 ]
-echantillonneur_gibbs <- function(X,N_simu){
-    # X sont les donnees
-    # initalisation
-    .
-    .
+> output_XY=arimax(Y,order=c(2,0,0),transfer=list(c(1,5)),fixed=c(NA,NA,NA,NA,0,0,0,NA,NA,NA),xtransf=X)
+> summary(output_XY)
+Coefficients:
+         ar1      ar2  intercept  T1-AR1  T1-MA0  T1-MA1  T1-MA2   T1-MA3   T1-MA4
+      1.5272  -0.6288    53.3618  0.5490       0       0       0  -0.5310  -0.3801
+s.e.  0.0467   0.0495     0.1375  0.0392       0       0       0   0.0738   0.1017
+       T1-MA5
+      -0.5180
+s.e.   0.1086
 
-    for (k in 1:N_simu){
+sigma^2 estimated as 0.0571:  log likelihood = 2.08,  aic = 9.83
 
-        Z <- Z_given_mu(X,Z,mu,pi_1) ; param_post <- mu_given_Z(X, Z, mu_prior)
-        mu = param_post$mu
-    .
-    .
-    .
-    }
-    return(list(Z, mu_1, mu_2))
-}
-\end{lstlisting}
+Training set error measures:
+                       ME      RMSE       MAE          MPE      MAPE      MASE       ACF1
+Training set 0.0001700879 0.2389594 0.1681788 -0.001732428 0.3130213 0.2806151 0.02877323
+  \end{lstlisting}
+  \begin{lstlisting}[
+    basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+    captionpos=b,
+    numbers = none
+]
+> coeftest(output_XY)
+z test of coefficients:
+           Estimate Std. Error  z value  Pr(>|z|)
+ar1        1.527181   0.046723  32.6859 < 2.2e-16 ***
+ar2       -0.628841   0.049471 -12.7114 < 2.2e-16 ***
+intercept 53.361773   0.137503 388.0769 < 2.2e-16 ***
+T1-AR1     0.549027   0.039191  14.0089 < 2.2e-16 ***
+T1-MA3    -0.530964   0.073814  -7.1933 6.325e-13 ***
+T1-MA4    -0.380125   0.101704  -3.7376 0.0001858 ***
+T1-MA5    -0.518006   0.108562  -4.7715 1.829e-06 ***
+  \end{lstlisting}
+

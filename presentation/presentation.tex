@@ -190,36 +190,237 @@ Tuteur : Denis Villemonais
 % //...........................yyyyy.....................................................................................
 % //...........................yyyyy.....................................................................................
 
-%\input{Bayes_1.tex}
+\input{Bayes_1.tex}
+
 \section{Modélisation d'un jeu de données}
 
 \begin{frame}
   \frametitle{Utilisation du modèle BSTS sur un jeu de données}
+  %\vspace{-0.5cm}
+  
+  On prend le jeu de données \textbf{\textit{CO2}} comprenant 295 observations
+  \setbeamertemplate{itemize items}[triangle]
+  \begin{itemize}
+    \item $Input\ Gas$ : arrivée d'essence
+    \item $Output\ CO2$ : CO2 en sortie
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.75\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png} 
+  \end{figure}
+\end{frame}
 
+\begin{frame}[fragile]
+  \small On utilise le modèle précédent pour exprimer $Input\ Gas$ en fonction de $Output\ CO2$.
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \vspace{0.2cm}
+    \begin{lstlisting}[
+      basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+      captionpos=b,
+      numbers = none,
+      caption={\tiny package \textit{bsts}},
+      ]
+      library(bsts)
+      ss <- AddLocalLinearTrend(list(), CO2$output.co2)
+      bsts.reg <- bsts(output.co2 ~ ., state.specification = ss, data =
+      CO2, niter = 2000, ping=0, seed=2016)
+    \end{lstlisting}
+    
+    \vspace{-0.5cm}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    {\small
+  $\begin{array}{ll}{y_{t}=\mu_{t}+\beta^{T} \mathbf{x}_{t}+\epsilon_{t}} & {\epsilon_{t} \sim \mathcal{}{}{N}\left(0, \sigma_{\epsilon}^{2}\right)} \\
+   {\mu_{t}=\mu_{t-1}+\delta_{t-1}+u_{t}} & {u_{t} \sim \mathcal{N}\left(0, \sigma_{u}^{2}\right)}\end{array}$
+    }
+  \end{column}
+\end{columns}
+%\vspace{-0.2cm}
+\begin{figure}
+  \includegraphics[width=0.7\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png} 
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Convergence}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png} 
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+      \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png} 
+    \end{figure}
+      
+      
+    \end{column}
+    \end{columns}
   
 
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Résidus}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+    \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png} 
+  \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+      \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png} 
+    \end{figure}
+      
+      
+    \end{column}
+    \end{columns}
+  
+    \begin{lstlisting}[
+      basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+      captionpos=b,
+      numbers = none
+  ]
+> MAPE=mean(abs(colMeans(bsts.reg$one.step.prediction.errors))/CO2$output.co2)
+> MAPE
+[1] 0.005890585
+> MAPE
+    \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comparaison avec un modéle à fontion de transfert}
+  Modèle à fonction de transfert : $Y_{t}=\mu+\frac{\Omega(B)}{\Delta(B)} X_{t-b}+\frac{\Theta(B)}{\Phi(B)} \varepsilon_{t}$ \\
+  Avec :
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item $(Y_t)$ chronique à modeliser
+        \item $(X_t)$ chronique explicative
+        
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item $\frac{\Omega(B)}{\Delta(B)}$ fonction de transfert
+        \item $(u_t)$ chronique des erreurs
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vspace{0.2cm}
+  $\rightarrow$ On blanchit la chronique $X_t$ : $\chi_{t}=\frac{\Phi_{1}(B)}{\Theta_{1}(B)} X_{t}$ \\
+  \vspace{0.2cm}
+  $\rightarrow$ $\Upsilon_{t}=\frac{\Phi_{1}(B)}{\Theta_{1}(B)} Y_{t}=\frac{\Omega(B)}{\Delta(B)} \chi_{t-b}+\widetilde{\varepsilon}_{t}$
+
+  On utilise le corrélogramme croisé $\rho(h)=\frac{\operatorname{Cov}\left(\chi_{t}, 
+  \Upsilon_{t+h}\right)}{\sqrt{\operatorname{Var}\left(\chi_{t}\right) \cdot \operatorname{Var}\left(\Upsilon_{t}\right)}}
+  = \left\{ \begin{aligned}
+    \nu_{h} \frac{\sigma_{\chi}}{\sigma r} \quad &\text{si } h \geqslant 0 \\
+    0 \quad &\text{si } h < 0
+  \end{aligned}\right.$ \\
+  où $\Upsilon_{t}=\sum_{h \geqslant 0} \nu_{h} \chi_{t-h}+\widetilde{\varepsilon}_{t}$
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Application sur le jeu de données CO2}
+  $\rightarrow$ blanchissement de $Input\ Gas$.\\
+  \begin{figure}
+    \includegraphics[width=0.7\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png} 
+  \end{figure}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Application sur le jeu de données CO2}
+  $\rightarrow$ blanchissement de $Input\ Gas$.\\
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png} 
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png} 
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Application sur le jeu de données CO2}
+  $\rightarrow$ Determiner la fonction de transfert\\
+  \begin{figure}
+    \includegraphics[width=0.7\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png} 
+  \end{figure}
+\end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Application sur le jeu de données CO2}
+
+  $\rightarrow$ Le meilleur modèle est un $AR[2]$ au numérateur et un polynome de degré 4 au dénominateur
+  \begin{lstlisting}[
+    basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+    captionpos=b,
+    numbers = none
+]
+> output_XY=arimax(Y,order=c(2,0,0),transfer=list(c(1,5)),fixed=c(NA,NA,NA,NA,0,0,0,NA,NA,NA),xtransf=X)
+> summary(output_XY)
+Coefficients:
+         ar1      ar2  intercept  T1-AR1  T1-MA0  T1-MA1  T1-MA2   T1-MA3   T1-MA4
+      1.5272  -0.6288    53.3618  0.5490       0       0       0  -0.5310  -0.3801
+s.e.  0.0467   0.0495     0.1375  0.0392       0       0       0   0.0738   0.1017
+       T1-MA5
+      -0.5180
+s.e.   0.1086
+
+sigma^2 estimated as 0.0571:  log likelihood = 2.08,  aic = 9.83
+
+Training set error measures:
+                       ME      RMSE       MAE          MPE      MAPE      MASE       ACF1
+Training set 0.0001700879 0.2389594 0.1681788 -0.001732428 0.3130213 0.2806151 0.02877323
+  \end{lstlisting}
+  \begin{lstlisting}[
+    basicstyle=\fontsize{5}{5}\selectfont\ttfamily, %or \small or \footnotesize etc.
+    captionpos=b,
+    numbers = none
+]
+> coeftest(output_XY)
+z test of coefficients:
+           Estimate Std. Error  z value  Pr(>|z|)    
+ar1        1.527181   0.046723  32.6859 < 2.2e-16 ***
+ar2       -0.628841   0.049471 -12.7114 < 2.2e-16 ***
+intercept 53.361773   0.137503 388.0769 < 2.2e-16 ***
+T1-AR1     0.549027   0.039191  14.0089 < 2.2e-16 ***
+T1-MA3    -0.530964   0.073814  -7.1933 6.325e-13 ***
+T1-MA4    -0.380125   0.101704  -3.7376 0.0001858 ***
+T1-MA5    -0.518006   0.108562  -4.7715 1.829e-06 ***
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Application sur le jeu de données CO2}
+  $\rightarrow$ Diagnostic des résidus
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png} 
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png} 
+    \end{column}
+  \end{columns}
+\end{frame}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\breakingframe{
+\begin{textblock*}{13cm}(3.5cm,4cm)
+    
+\Large \textbf{\textcolor{black}{Conclusion}}
+\end{textblock*}
+}
 
 
 

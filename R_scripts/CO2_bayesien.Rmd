@@ -53,8 +53,8 @@ ss <- AddLocalLinearTrend(list(), CO2$output.co2)
 # avec les paramètres par defaut ici
 # comme les recherches google sont similaire, on attend un taille de 
 # modèle inférieure à 10, on prend 5.
-bsts.reg <- bsts(output.co2 ~ ., state.specification = ss, data =
-                   CO2, niter = 2000, ping=0, seed=2016)
+  bsts.reg <- bsts(output.co2 ~ ., state.specification = ss, data =
+                     CO2, niter = 2000, ping=0, seed=2016)
 
 # affichage de la serie et des valeurs obtenues selon le modèle
 plot(bsts.reg,main="Observations et valeurs obtenues par le modèle bsts.reg")
@@ -80,22 +80,22 @@ burn <- SuggestBurn(0.2, bsts.reg)
 # on verifie ainsi que le modèle correspond bien à la serie à prédire.
 
 
-plot(as.mcmc(bsts.reg$sigma.trend.slope[-(1:200)]))
+plot(as.mcmc(bsts.reg$sigma.trend.slope[-(1:200)]),main=expression(paste("diagnostic de convergence pour ", sigma,epsilon^2)))
 
 # affichage de la distribution à postériori des résidus du modèle 
-PlotBstsResiduals(bsts.reg, burn = SuggestBurn(0.2, bsts.reg), style = "dynamic" )
-acf(bsts.reg$sigma.trend.slope[-(1:200)],lag.max = 50)
-
+PlotBstsResiduals(bsts.reg, burn = SuggestBurn(0.2, bsts.reg), style = "dynamic",main="résidus du modèle à postériori")
+acf(bsts.reg$sigma.trend.slope[-(1:200)],lag.max = 50,main=expression(paste("ACF des tirages succésifs de ", sigma,epsilon^2)))
+tsdiag(r)
 r <- residuals(bsts.reg,burn = SuggestBurn(0.1, bsts.reg))#, mean.only = TRUE)
 hist(r, freq = F, col = "grey",main = "Histogramme de la distribution postérieure des résidus", xlab = "residus")
 curve(dnorm(x, mean = mean(r), sd = sd(r)), col = 2, add = TRUE)
 
 AcfDist(r)
 
-
+qqdist(r)
 # la droite de Henry des résidus 
 qqnorm(r)
-qqline(r)
+qqline(r)#,main=="Q")
 
 # coefficients
 coeff <- data.frame(apply(bsts.reg$coefficients[-(1:burn),], 2, PositiveMean))
@@ -107,8 +107,8 @@ ggplot(data=coeff, aes(x=Variable, y=value)) +
 
 
 
-one.step.error = colMeans(bsts.reg$one.step.prediction.errors)
-MAPE=mean(abs(one.step.error)/CO2$output.co2)
+
+MAPE=mean(abs(colMeans(bsts.reg$one.step.prediction.errors))/CO2$output.co2)
 MAPE
 
 
