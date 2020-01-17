@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  17 JAN 2020 04:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  17 JAN 2020 09:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1137,47 +1137,208 @@ Overfull \hbox (4.69629pt too wide) has occurred while \output is active
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Figures/logo.png> <./Figures/univ.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 132.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 132.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 132.
- (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-) [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Figures/logo.png> <./Figures/univ.png>] [2
 
 ] (./presentation.toc) [3
 
-] (./Bayes_1.tex [4
+] (./MCMC_1.tex [4
+
+] [5
 
 ]
-<Figures/hmc.png, id=72, 1164.35pt x 427.5975pt>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 41.
+ (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+) [6
+
+] [7
+
+]
+<Figures/trace1.png, id=116, 631.60968pt x 674.52pt>
+File: Figures/trace1.png Graphic file (type png)
+<use Figures/trace1.png>
+Package pdftex.def Info: Figures/trace1.png  used on input line 80.
+(pdftex.def)             Requested size: 125.47525pt x 133.99588pt.
+<Figures/index1.png, id=117, 684.30656pt x 672.26157pt>
+File: Figures/index1.png Graphic file (type png)
+<use Figures/index1.png>
+Package pdftex.def Info: Figures/index1.png  used on input line 80.
+(pdftex.def)             Requested size: 139.4179pt x 136.9631pt.
+
+
+LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
+(Font)              using `T1/cmss/m/n' instead on input line 80.
+
+[8
+
+ <./Figures/trace1.png> <./Figures/index1.png>] [9
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+)
+LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 8.
+LaTeX Font Info:    No file OMScmss.fd. on input line 8.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textasteriskcentered' on input line 8.
+
+) [10
+
+]
+<../MCMC_numeric/simu/simu_1.png, id=142, 462.528pt x 346.896pt>
+File: ../MCMC_numeric/simu/simu_1.png Graphic file (type png)
+<use ../MCMC_numeric/simu/simu_1.png>
+Package pdftex.def Info: ../MCMC_numeric/simu/simu_1.png  used on input line 154.
+(pdftex.def)             Requested size: 179.25114pt x 134.43668pt.
+<../MCMC_numeric/simu/simu_5.png, id=143, 462.528pt x 346.896pt>
+File: ../MCMC_numeric/simu/simu_5.png Graphic file (type png)
+<use ../MCMC_numeric/simu/simu_5.png>
+Package pdftex.def Info: ../MCMC_numeric/simu/simu_5.png  used on input line 154.
+(pdftex.def)             Requested size: 179.25114pt x 134.43668pt.
+ [11
+
+ <../MCMC_numeric/simu/simu_1.png> <../MCMC_numeric/simu/simu_5.png>]
+<../MCMC_numeric/simu/simu_100.png, id=153, 462.528pt x 346.896pt>
+File: ../MCMC_numeric/simu/simu_100.png Graphic file (type png)
+<use ../MCMC_numeric/simu/simu_100.png>
+Package pdftex.def Info: ../MCMC_numeric/simu/simu_100.png  used on input line 174.
+(pdftex.def)             Requested size: 179.25114pt x 134.43668pt.
+<../MCMC_numeric/simu/simu_1000.png, id=154, 462.528pt x 346.896pt>
+File: ../MCMC_numeric/simu/simu_1000.png Graphic file (type png)
+<use ../MCMC_numeric/simu/simu_1000.png>
+Package pdftex.def Info: ../MCMC_numeric/simu/simu_1000.png  used on input line 174.
+(pdftex.def)             Requested size: 179.25114pt x 134.43668pt.
+ [12
+
+ <../MCMC_numeric/simu/simu_100.png> <../MCMC_numeric/simu/simu_1000.png>]
+<../MCMC_numeric/simu/simu.png, id=164, 462.528pt x 346.896pt>
+File: ../MCMC_numeric/simu/simu.png Graphic file (type png)
+<use ../MCMC_numeric/simu/simu.png>
+Package pdftex.def Info: ../MCMC_numeric/simu/simu.png  used on input line 194.
+(pdftex.def)             Requested size: 258.91765pt x 194.1969pt.
+
+Overfull \vbox (24.69258pt too high) detected at line 194
+ []
+
+[13
+
+ <../MCMC_numeric/simu/simu.png>]) (./MCMC_2.tex
+<Figures/the_element.jpg, id=174, 306.14375pt x 501.875pt>
+File: Figures/the_element.jpg Graphic file (type jpg)
+<use Figures/the_element.jpg>
+Package pdftex.def Info: Figures/the_element.jpg  used on input line 36.
+(pdftex.def)             Requested size: 79.66649pt x 130.59929pt.
+
+Overfull \vbox (2.71939pt too high) detected at line 36
+ []
+
+[14
+
+ <./Figures/the_element.jpg>]
+<Figures/mix_gaussienne.png, id=186, 471.26062pt x 447.92343pt>
+File: Figures/mix_gaussienne.png Graphic file (type png)
+<use Figures/mix_gaussienne.png>
+Package pdftex.def Info: Figures/mix_gaussienne.png  used on input line 70.
+(pdftex.def)             Requested size: 119.50279pt x 113.57991pt.
+ [15
+
+ <./Figures/mix_gaussienne.png (PNG copy)>] [16
+
+]
+Overfull \hbox (3.64163pt too wide) in paragraph at lines 144--144
+ []$[][]$ 
+ []
+
+
+Overfull \hbox (30.41122pt too wide) in paragraph at lines 144--144
+ []$[][]$ 
+ []
+
+[17
+
+] [18
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9.
+ (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+))
+Overfull \vbox (14.3398pt too high) detected at line 264
+ []
+
+[19
+
+]
+<../MCMC_numeric/simu_gaussian/data.png, id=233, 602.25pt x 351.3125pt>
+File: ../MCMC_numeric/simu_gaussian/data.png Graphic file (type png)
+<use ../MCMC_numeric/simu_gaussian/data.png>
+Package pdftex.def Info: ../MCMC_numeric/simu_gaussian/data.png  used on input line 279.
+(pdftex.def)             Requested size: 219.08743pt x 127.80182pt.
+ [20
+
+ <../MCMC_numeric/simu_gaussian/data.png>]
+<../MCMC_numeric/simu_gaussian/mu.png, id=242, 802.49812pt x 547.2947pt>
+File: ../MCMC_numeric/simu_gaussian/mu.png Graphic file (type png)
+<use ../MCMC_numeric/simu_gaussian/mu.png>
+Package pdftex.def Info: ../MCMC_numeric/simu_gaussian/mu.png  used on input line 298.
+(pdftex.def)             Requested size: 254.93863pt x 173.86017pt.
+
+Overfull \vbox (9.44633pt too high) detected at line 298
+ []
+
+[21
+
+ <../MCMC_numeric/simu_gaussian/mu.png (PNG copy)>]
+<../MCMC_numeric/simu_gaussian/mu_plot_trac.png, id=251, 602.25pt x 351.3125pt>
+File: ../MCMC_numeric/simu_gaussian/mu_plot_trac.png Graphic file (type png)
+<use ../MCMC_numeric/simu_gaussian/mu_plot_trac.png>
+Package pdftex.def Info: ../MCMC_numeric/simu_gaussian/mu_plot_trac.png  used on input line 320.
+(pdftex.def)             Requested size: 199.1693pt x 116.18005pt.
+<../MCMC_numeric/simu_gaussian/mu_plot_dens.png, id=252, 602.25pt x 351.3125pt>
+File: ../MCMC_numeric/simu_gaussian/mu_plot_dens.png Graphic file (type png)
+<use ../MCMC_numeric/simu_gaussian/mu_plot_dens.png>
+Package pdftex.def Info: ../MCMC_numeric/simu_gaussian/mu_plot_dens.png  used on input line 320.
+(pdftex.def)             Requested size: 199.1693pt x 116.18005pt.
+ [22
+
+ <../MCMC_numeric/simu_gaussian/mu_plot_trac.png> <../MCMC_numeric/simu_gaussian/mu_plot_dens.png>] [23
+
+]) (./Bayes_1.tex [24
+
+]
+<Figures/hmc.png, id=275, 1164.35pt x 427.5975pt>
 File: Figures/hmc.png Graphic file (type png)
 <use Figures/hmc.png>
 Package pdftex.def Info: Figures/hmc.png  used on input line 48.
 (pdftex.def)             Requested size: 159.33604pt x 58.51263pt.
 
-
-LaTeX Font Warning: Font shape `T1/cmss/m/sc' undefined
-(Font)              using `T1/cmss/m/n' instead on input line 48.
-
-
 Overfull \vbox (14.07376pt too high) detected at line 48
  []
 
-[5
+[25
 
- <./Figures/hmc.png>] [6
+ <./Figures/hmc.png>] [26
 
-] [7
+] [27
 
 ]
-<Figures/kalman_filter.png, id=105, 1480.78218pt x 647.41875pt>
+<Figures/kalman_filter.png, id=300, 1480.78218pt x 647.41875pt>
 File: Figures/kalman_filter.png Graphic file (type png)
 <use Figures/kalman_filter.png>
 Package pdftex.def Info: Figures/kalman_filter.png  used on input line 112.
@@ -1186,155 +1347,151 @@ Package pdftex.def Info: Figures/kalman_filter.png  used on input line 112.
 Overfull \vbox (6.03738pt too high) detected at line 112
  []
 
-[8
+[28
 
  <./Figures/kalman_filter.png (PNG copy)>]
-<Figures/pike.png, id=114, 1349.04pt x 963.6pt>
+<Figures/pike.png, id=308, 1349.04pt x 963.6pt>
 File: Figures/pike.png Graphic file (type png)
 <use Figures/pike.png>
 Package pdftex.def Info: Figures/pike.png  used on input line 162.
 (pdftex.def)             Requested size: 79.66649pt x 56.90189pt.
- [9
+ [29
 
- <./Figures/pike.png>] [10
+ <./Figures/pike.png>] [30
 
 ])
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png, id=148, 773.13844pt x 383.18156pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png, id=327, 773.13844pt x 383.18156pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png>
-Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png  used on input line 210.
+Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png  used on input line 202.
 (pdftex.def)             Requested size: 298.75394pt x 148.06618pt.
 
-Overfull \vbox (16.37451pt too high) detected at line 210
+Overfull \vbox (16.37451pt too high) detected at line 202
  []
 
-[11
+[31
 
  </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/co2.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 10.
- (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png, id=155, 750.55406pt x 417.05812pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png, id=336, 750.55406pt x 417.05812pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png  used on input line 28.
 (pdftex.def)             Requested size: 278.83578pt x 154.9391pt.
 )
-Overfull \vbox (9.71382pt too high) detected at line 242
+Overfull \vbox (9.71382pt too high) detected at line 234
  []
 
-[12
+[32
 
  </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/bsts.png (PNG copy)>]
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png, id=166, 750.55406pt x 442.65375pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png, id=345, 750.55406pt x 442.65375pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png>
-Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png  used on input line 263.
+Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png  used on input line 255.
 (pdftex.def)             Requested size: 199.1693pt x 117.45802pt.
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png, id=167, 777.65532pt x 441.90094pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png, id=346, 777.65532pt x 441.90094pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png>
-Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png  used on input line 263.
+Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png  used on input line 255.
 (pdftex.def)             Requested size: 199.1693pt x 113.17885pt.
- [13
+ [33
 
  </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/btst_convergence.png (PNG copy)> </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acf.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png, id=176, 778.40813pt x 448.67625pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png, id=354, 778.40813pt x 448.67625pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png  used on input line 5.
 (pdftex.def)             Requested size: 199.1693pt x 114.79774pt.
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png, id=177, 718.93594pt x 450.18187pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png, id=355, 718.93594pt x 450.18187pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png  used on input line 10.
 (pdftex.def)             Requested size: 199.1693pt x 124.71744pt.
-) [14
+) [34
 
- </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png (PNG copy)> </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png (PNG copy)>] [15
+ </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplot.png (PNG copy)> </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/hist.png (PNG copy)>] [35
 
 ]
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png, id=193, 802.49812pt x 478.78876pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png, id=370, 802.49812pt x 478.78876pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png  used on input line 4.
 (pdftex.def)             Requested size: 278.83578pt x 166.35852pt.
 )
-Overfull \vbox (6.46684pt too high) detected at line 334
+Overfull \vbox (6.46684pt too high) detected at line 326
  []
 
-[16
+[36
 
  </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfinout.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png, id=201, 802.49812pt x 478.78876pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png, id=378, 802.49812pt x 478.78876pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png  used on input line 6.
 (pdftex.def)             Requested size: 199.1693pt x 118.82751pt.
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png, id=202, 802.49812pt x 478.78876pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png, id=379, 802.49812pt x 478.78876pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png  used on input line 10.
 (pdftex.def)             Requested size: 199.1693pt x 118.82751pt.
-) [17
+) [37
 
  </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfx.png (PNG copy)> </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/acfy.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png, id=210, 802.49812pt x 478.78876pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png, id=388, 802.49812pt x 478.78876pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png>
 Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png  used on input line 4.
 (pdftex.def)             Requested size: 278.83578pt x 166.35852pt.
 )
-Overfull \vbox (4.33768pt too high) detected at line 355
+Overfull \vbox (4.33768pt too high) detected at line 347
  []
 
-[18
+[38
 
  </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/corrcroise.png (PNG copy)>]
 \openout4 = `presentation.vrb'.
 
- (./presentation.vrb) [19
+ (./presentation.vrb) [39
 
 ]
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png, id=226, 802.49812pt x 478.78876pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png, id=403, 802.49812pt x 478.78876pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png>
-Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png  used on input line 415.
+Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png  used on input line 407.
 (pdftex.def)             Requested size: 199.1693pt x 118.82751pt.
-</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png, id=227, 802.49812pt x 478.78876pt>
+</home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png, id=404, 802.49812pt x 478.78876pt>
 File: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png Graphic file (type png)
 <use /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png>
-Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png  used on input line 415.
+Package pdftex.def Info: /home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png  used on input line 407.
 (pdftex.def)             Requested size: 199.1693pt x 118.82751pt.
- [20
+ [40
 
- </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png (PNG copy)> </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png>] [21
+ </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/res.png (PNG copy)> </home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/C02/qqplotxy.png>] [41
 
 ]
-<Figures/spurious.png, id=243, 2087.8pt x 823.075pt>
+<Figures/spurious.png, id=420, 2087.8pt x 823.075pt>
 File: Figures/spurious.png Graphic file (type png)
 <use Figures/spurious.png>
-Package pdftex.def Info: Figures/spurious.png  used on input line 454.
+Package pdftex.def Info: Figures/spurious.png  used on input line 446.
 (pdftex.def)             Requested size: 199.1693pt x 78.50691pt.
- [22
+ [42
 
- <./Figures/spurious.png>] [23
+ <./Figures/spurious.png>] [43
 
 ]
 \tf@nav=\write6
@@ -1346,11 +1503,11 @@ Package pdftex.def Info: Figures/spurious.png  used on input line 454.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 586.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 586.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 578.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 578.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 586.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 586.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 578.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 578.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 4E8CE514A84E7ED034FA652F1CD54669;262.
 
@@ -1359,20 +1516,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 37201 strings out of 492167
- 707114 string characters out of 6131559
- 1302652 words of memory out of 5000000
- 40885 multiletter control sequences out of 15000+600000
- 560482 words of font info for 89 fonts, out of 8000000 for 9000
+ 37802 strings out of 492167
+ 715630 string characters out of 6131559
+ 1448653 words of memory out of 5000000
+ 41392 multiletter control sequences out of 15000+600000
+ 581338 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,18n,69p,866b,2628s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation24} has been referenced but does not exist, replaced by a fixed one
-
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on presentation.pdf (23 pages, 1203004 bytes).
+ 65i,18n,69p,866b,2580s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on presentation.pdf (43 pages, 1905828 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 279 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 591 PDF objects out of 1000 (max. 8388607)
+ 441 compressed objects within 5 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 252 words of extra memory for PDF output out of 10000 (max. 10000000)
 
