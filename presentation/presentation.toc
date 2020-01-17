@@ -1,3 +1,4 @@
 \babel@toc {french}{}
-\beamer@sectionintoc {1}{La méthode MCMC}{3}{0}{1}
-\beamer@sectionintoc {2}{Approche bayésienne pour la modélisation des series temporelles}{3}{0}{2}
+\beamer@sectionintoc {1}{Méthode de Monte-Carlo par chaînes de Markov}{4}{0}{1}
+\beamer@sectionintoc {2}{Approche bayésienne pour la modélisation des series temporelles}{4}{0}{2}
+\beamer@sectionintoc {3}{Modélisation d'un jeu de données}{4}{0}{3}

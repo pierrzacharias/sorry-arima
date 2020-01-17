@@ -108,6 +108,28 @@ Tuteur : Denis Villemonais
 % \end{frame}
 
 % Use smart division for the TOC
+ \begin{frame}
+   \frametitle{Introduction}
+   \begin{itemize}
+      \item Projet à partir du billet \textbf{\textit{Sorry ARIMA, but I’m Going Bayesian}} par Kim Larsen.
+        S'appuis sur plusieurs publications :
+        \setbeamertemplate{itemize items}[triangle]
+        \vspace{0.2cm}
+        \begin{itemize}
+          \item Predicting the Present with Bayesian Structural Time Series, S.L. Scott and H. Varian
+          \item Variable Selection Via Gibbs sampling , E.I. George, R.E. McCulloch
+          \item A simple and efficient simulation smoother, J. Durbin, S.J. Koopman
+        \end{itemize}
+        \vspace{0.2cm}
+        \setbeamertemplate{itemize items}[square]
+        \item \'Etudier une autre approche que celle classique pour les série temporelles
+        \vspace{0.2cm}
+      \item Utilisation des méthodes de Monté-carlo par chaîne de Markov.
+   \end{itemize}
+ 
+   
+ 
+ \end{frame}
 \begin{frame}{Sommaire}
 %\begin{multicols}{2}
 \tableofcontents
@@ -115,7 +137,7 @@ Tuteur : Denis Villemonais
 \end{frame}
 
 % -----------------------Introduction
-\section{La méthode MCMC}
+\section{Méthode de Monte-Carlo par chaînes de Markov}
 %.MMMMMM....MMMMMM....CCCCCCCCC..CMMMMM....MMMMMM....CCCCCCCCC............1111111.....
 %.MMMMMM....MMMMMM...CCCCCCCCCCC.CMMMMMM...MMMMMM...CCCCCCCCCCC...........1111111.....
 %.MMMMMMM..MMMMMMM..CCCCCCCCCCCC.CMMMMMM..MMMMMMM..MCCCCCCCCCCC...........1111111.....
@@ -168,9 +190,15 @@ Tuteur : Denis Villemonais
 % //...........................yyyyy.....................................................................................
 % //...........................yyyyy.....................................................................................
 
-\input{Bayes_1.tex}
+%\input{Bayes_1.tex}
+\section{Modélisation d'un jeu de données}
 
+\begin{frame}
+  \frametitle{Utilisation du modèle BSTS sur un jeu de données}
 
+  
+
+\end{frame}
 
 
 
@@ -199,16 +227,35 @@ Tuteur : Denis Villemonais
 \begin{frame}
     \normalsize
     \frametitle{Conclusion}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+      
+        \begin{itemize}
+      
+        
+          \item Arguments de l'auteur pour une approche bayesienne
+          
 
-    \begin{itemize}
-        \item Auteur prèfère mettre incertitude dans la prior que sur l'estimation des coéfficientss
-    \end{itemize}
+          \vspace{1cm}
+          \item Bayesiens contre fréquentistes
+          \vspace{1cm}
+          \item Les avantage de l'approche bayésienne
+        \end{itemize}
+
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \includegraphics[width=\textwidth]{Figures/spurious.png}
+          \caption{[http://www.tylervigen.com/]}
+      \end{figure}
+      \end{column}
+      \end{columns}
 \end{frame}
 
 \breakingframe{
 \begin{textblock*}{13cm}(3.5cm,4cm)
     
-\Huge\textbf{\textcolor{black}{Merci de votre attention}}
+\textbf{\textcolor{black}{Merci de votre attention}}
 \end{textblock*}
 }
 

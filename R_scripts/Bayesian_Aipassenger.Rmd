@@ -134,7 +134,7 @@ tsdisplay(res)
 Nous pouvons regarder l'evolution des valeurs échantillonées pour des paramètres afin d'évaluer la convergence de la simulation. 
 
 ```{r, echo = TRUE, message=FALSE, eval=TRUE,fig.height=3.5}
-  plot(bsts.model$sigma.obs,type='l')
+plot(bsts.model$sigma.obs,type='l')
 ```
 
 Cela justifie de prendre un burn-in de 10\% des tirages, soit 100 tirages.

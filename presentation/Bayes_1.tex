@@ -1,3 +1,10 @@
+
+\breakingframe{
+    \begin{textblock*}{13cm}(3.5cm,4cm)
+        
+    \textbf{\textcolor{black}{Approche bayésienne pour les séries temporelles}}
+    \end{textblock*}}
+
 \begin{frame}
     \frametitle{Approche bayésinne pour la modélisation des séries temporelles}
     \setbeamertemplate{itemize items}[triangle]
@@ -23,24 +30,27 @@
         \begin{column}{0.5\textwidth}
             
             \begin{itemize}
-                \item $y_t$ obervations
+                \item $y_t$ observations
                 \item $\alpha_t$ variables d'états / latentes / cachées
                 \item $Z_t$ matrice de mesure
-                \item $T_t$ matrice de transitions
+                \item $T_t$ matrice de transition
             \end{itemize}
         \end{column}
         
         \begin{column}{0.5\textwidth}
+            \vspace{0.5cm}
             \begin{figure}
-                \includegraphics[width=\textwidth]{Figures/hmc.png}
-                \caption{[researchgate.net]}
+                \includegraphics[width=0.8\textwidth]{Figures/hmc.png}
+                \caption{Hidden Markov Chain[researchgate.net]}
             \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
+
+
 \begin{frame}
-    \frametitle{Approche bayésinne pour la modélisation des séries temporelles}
+    \frametitle{Approche bayésienne pour la modélisation des séries temporelles}
     
     $\rightarrow$ Bayesian structural time series (BSTS) 
     \bgroup
@@ -53,7 +63,7 @@
 \multicolumn{1}{l|}{regression}                                                 & \multicolumn{1}{l|}{${\beta^{T} x_{t}}$}                                 &                      \\ \hline
 \multicolumn{1}{l|}{tendance + marche aléatoire}                                & \multicolumn{1}{l|}{${\mu_{t}=\mu_{t-1}+\delta_{t-1}+u_{t}}$}            & $u_{t} \sim N\left(0, \sigma_{u}^{2}\right)$                        \\ \hline
 \multicolumn{1}{l|}{marche aléatoire}                                           & \multicolumn{1}{l|}{$\delta_{t}=\delta_{t-1}+v_{t}$}                     & $v_{t} \sim N\left(0, \sigma_{v}^{2}\right)$                        \\ \hline
-\multicolumn{1}{l|}{sainsonnalité}                                              & \multicolumn{1}{l|}{$\tau_{t}=-\sum_{s=1}^{s-1} \tau_{t-s}+w_{t}$}       & $w_{t} \sim N\left(0, \sigma_{w}^{2}\right)$                       
+\multicolumn{1}{l|}{saisonnalité}                                              & \multicolumn{1}{l|}{$\tau_{t}=-\sum_{s=1}^{s-1} \tau_{t-s}+w_{t}$}       & $w_{t} \sim N\left(0, \sigma_{w}^{2}\right)$                       
 \end{tabular}
 \end{table}
 \egroup
@@ -130,6 +140,7 @@
         \begin{itemize}
             \item  $\displaystyle p(\gamma)=\prod_{k=1}^{N} \pi^{\gamma_k}(1-\pi)^{1-\gamma_k}$, $\gamma_k \in \{0,1 \}$ {\small $N = Card(\mathbf{x})$} 
             \item \'A priori : $p\left(\beta, \gamma, \sigma_{\varepsilon}^{2}\right)=p\left(\beta_{\gamma} | \gamma, \sigma_{\varepsilon}^{2}\right) p\left(\sigma_{\varepsilon}^{2} | \gamma\right) p(\gamma)$ 
+            \hfill $\beta_{\gamma} = \beta[\gamma_k \neq 0]$
             \item $
                 \beta_{\gamma}\left|\sigma_{\epsilon}^{2}, \gamma \sim \mathcal{N}\left(b_{\gamma},
                 \sigma_{\epsilon}^{2}\left(\Omega_{\gamma}^{-1}\right)^{-1}\right) \quad \sigma_{\epsilon}^{2}\right| \gamma \sim IG\left(\frac{\nu}{2}, \frac{s s}{2}\right)
@@ -145,7 +156,7 @@
         \item On utilise les propriété des lois conjugé pour obtenir les loi à postériori \\ \vspace{0.1cm}
         {\centering
         $\beta_{\gamma} | \sigma_{\epsilon}, \gamma, \mathbf{y}^{*} \quad \quad \gamma_\epsilon^{2} | \gamma, \mathbf{y}^{*} \quad \quad \gamma | \mathbf{y}^{*}$}
-        \item Intérêt de la \textit{spkie-and-slab}
+        \item Intérêt de la \textit{spike-and-slab}
     \end{itemize}
 
 \end{frame}
@@ -156,7 +167,7 @@
     \setbeamertemplate{itemize items}[triangle]
     $\Theta=\left(\gamma, \beta, \sigma_{\varepsilon}^{2}, \sigma_{v}^{2}, \sigma_{u}^{2}\right)$
     \begin{itemize}
-    \item Choisir paramètres à priori $v$, $R^2$, $s_y^2$
+    \item Choisir paramètres à priori $v$, $R^2$, $s_y^2$, $\pi$ 
     \item Tirer $\gamma, \beta, \sigma_{\varepsilon}^{2}, \sigma_{v}^{2}, \sigma_{u}^{2}$ \hfill $\sigma_u^2$,$\sigma_u^2$,$\sigma_w^2$ sont tiré selon la loi $. | \gamma \sim I G\left(\frac{\nu}{2}, \frac{s s}{2}\right)$
     \end{itemize}
 Sur $1, \ldots, M$:

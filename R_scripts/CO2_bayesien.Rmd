@@ -1,0 +1,255 @@
+---
+  title: ""
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+  
+  \pagenumbering{gobble} 
+
+```{r setup, include=FALSE}
+# Sys.setenv(RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc")
+knitr::opts_chunk$set(echo = TRUE)
+setwd("/home/pierre/Documents/Courses/project_serie_temporelles/time_series_project/R_scripts/")
+```
+
+On cherche à prédire la chronique des demandes d'indémnité du chomage aux USA par les chroniques de popularité de recherches Google en liens avec le chômage.
+La chronique $initialia.claims$ du package `bsts` contient ainsi 10 recherches Google.
+Nous aplliquons ainsi le modèle complet tel que décrit précédement.
+
+
+```{r eval=TRUE, echo=TRUE, fig.height=5, fig.width=7, message=FALSE}
+  library(lubridate)
+  library(bsts)
+  library(coda)
+  library(ggplot2)
+  library(reshape2)
+  library(zoo)
+```
+
+nous tirons 2000 échantillons avec un burn-in de 400 tirages. Pour la $spicke$ $and$ $slab$ $prior$ nous prenons une taille de modèle à priori de 5, soit $\pi_t = \pi = 5/10$
+
+```{r eval=TRUE, echo=TRUE, fig.height=4, message=FALSE}
+setwd("/home/pierre/Documents/Courses/2A/Modelisation_des_series_temporelles/MODELISATION-SERIES-TEMPORELLES/MODELISATION SERIES TEMPORELLES/Séance 5/")
+
+seriesJ=read.table(file="seriesJ.txt",sep='\t',header=T)
+
+X = ts(seriesJ[,1]) # "Input.Gas.Rate"
+Y = ts(seriesJ[,2]) # "Output.CO2"
+
+CO2.data <- data.frame(
+   gas.rate = X,
+   output.co2 = Y
+   )
+CO2 = zoo(CO2.data)
+
+plot(initial.claims$iclaimsNSA,main="US initial claims for unemployment per week",xlab = "time")
+
+# ajout au modèle de mu_t = mu_t-1 + delta_t-1 N(0,sigma.level).^2)
+#        dela_t = delta_t-1 + N(0, sigma.slope^2)
+ss <- AddLocalLinearTrend(list(), CO2$output.co2)
+
+# modele avec une regression avec une distribution à priori spike and slab
+# avec les paramètres par defaut ici
+# comme les recherches google sont similaire, on attend un taille de 
+# modèle inférieure à 10, on prend 5.
+bsts.reg <- bsts(output.co2 ~ ., state.specification = ss, data =
+                   CO2, niter = 2000, ping=0, seed=2016)
+
+# affichage de la serie et des valeurs obtenues selon le modèle
+plot(bsts.reg,main="Observations et valeurs obtenues par le modèle bsts.reg")
+lines(CO2$output.co2)
+legend("bottomleft", 
+       legend = c("valeurs obtenues par le modèle","observations"), 
+       col = c("blue", 
+               "red"), 
+       pch = c(1,NA), 
+       lty = c(NA,1),
+       bty = "n", 
+       pt.cex = 1, 
+       cex = 1.5, 
+       text.col =  c("blue", 
+                     "red"), 
+       horiz = F , 
+       inset = c(0.3, 0.01)
+       )
+
+summary(bsts.reg)
+# on attend 400 tirage avant de les utiliser pour estimer les distributions
+burn <- SuggestBurn(0.2, bsts.reg)
+# on verifie ainsi que le modèle correspond bien à la serie à prédire.
+
+
+plot(as.mcmc(bsts.reg$sigma.trend.slope[-(1:200)]))
+
+# affichage de la distribution à postériori des résidus du modèle 
+PlotBstsResiduals(bsts.reg, burn = SuggestBurn(0.2, bsts.reg), style = "dynamic" )
+acf(bsts.reg$sigma.trend.slope[-(1:200)],lag.max = 50)
+
+r <- residuals(bsts.reg,burn = SuggestBurn(0.1, bsts.reg))#, mean.only = TRUE)
+hist(r, freq = F, col = "grey",main = "Histogramme de la distribution postérieure des résidus", xlab = "residus")
+curve(dnorm(x, mean = mean(r), sd = sd(r)), col = 2, add = TRUE)
+
+AcfDist(r)
+
+
+# la droite de Henry des résidus 
+qqnorm(r)
+qqline(r)
+
+# coefficients
+coeff <- data.frame(apply(bsts.reg$coefficients[-(1:burn),], 2, PositiveMean))
+coeff$Variable <- as.character(row.names(coeff))
+ggplot(data=coeff, aes(x=Variable, y=value)) + 
+  geom_bar(stat="identity", position="identity") + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0)) + 
+  xlab("") + ylab("")
+
+
+
+one.step.error = colMeans(bsts.reg$one.step.prediction.errors)
+MAPE=mean(abs(one.step.error)/CO2$output.co2)
+MAPE
+
+
+
+
+```
+
+On peut vérifier le caractère gaussien de la distribution des résidus du modèle.
+
+```{r eval=TRUE, echo=TRUE, fig.height=3.5, message=FALSE, eval = FALSE}
+r <- residuals(bsts.reg,burn = SuggestBurn(0.2, bsts.reg))
+PlotBstsResiduals(bsts.reg,burn,main="distribution à postériori des résidus")
+qqnorm(r)
+qqline(r)
+```
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=250pt]{res.png}
+\includegraphics[width=300pt]{qqnorm.png}
+\end{figure}
+
+Après les tirages succéssifs, on peut estimer la probabilité à postérior des variables explicatives dans le modèle.
+
+```{r eval=TRUE, echo=TRUE, fig.height=4, fig.width=6, message=FALSE}
+plot(bsts.reg, "coef",burn = SuggestBurn(0.3, bsts.reg))
+```
+
+Les chroniques `unemployment.office` et `idaho unemployment` ont une probabilité à postériori trés forte d'être dans le modèle.
+Pour les estimations des coéfficients de la regression :
+
+
+```{r echo=FALSE, fig.height=4,message=FALSE}
+# moyenne d'un vecteur
+PositiveMean <- function(b) {
+  b <- b[abs(b) > 0]
+  if (length(b) > 0) 
+    return(mean(b))
+  return(0)
+}
+# on calcule la moyenne des coeffiecient sur les différents tirages en ne prennat en compte que les tirages 
+# ou ils ont été compris dans le modèle
+coeff <- data.frame(melt(apply(bsts.reg$coefficients[-(1:burn),], 2, PositiveMean)))
+coeff$Variable <- as.character(row.names(coeff))
+ggplot(data=coeff, aes(x=Variable, y=value)) + 
+  geom_bar(stat="identity", position="identity") + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0)) + 
+  xlab("") + ylab("")
+```
+
+Les chroniques `unemployment.office` et `idaho unemployment` ont ainsi les probabilités estimées à postériori de contribuer au modèle les plus importantes.
+
+On peut supposer que le modèle n'a que 3 composantes avec `unemployment.office` et `idaho unemployment` obligatoirement incluses.
+Nous pouvons essayer un modèle avec une telle distribution à priori en imposant à la distribition à priori de $\beta$ de prendre en compte ces chroniques.
+
+
+```{r eval=TRUE, echo=TRUE, fig.height=4², fig.width=5, message=FALSE}
+prior.spikes <- rep(0.1,11)
+prior.spikes[3] <- 1
+prior.spikes[11] <- 1
+
+# on génère à partir de ces coééficient à priori la distribution spike and slab à priori
+prior <- SpikeSlabPrior(x=model.matrix(iclaimsNSA ~ ., data=initial.claims), 
+                        y=initial.claims$iclaimsNSA, 
+                        expected.model.size = 5,
+                        prior.inclusion.probabilities = prior.spikes)
+
+bsts.reg.priors <- bsts(iclaimsNSA ~ ., state.specification = ss, 
+                        data = initial.claims, 
+                        niter = 2000, 
+                        prior=prior, 
+                        ping=0, seed=2016)
+burn <- SuggestBurn(0.3, bsts.reg.priors)
+
+# probabilité à postériori d'inclusion des variables
+plot(bsts.reg.priors, "coef",burn = SuggestBurn(0.3, bsts.reg),
+     main="probabilité à postériori des variables explicatives")
+```
+
+Ainsi les 3 variable explicatives conservées à postériori sont s`unemployment.office`,`idaho unemployment`, et `filing.unemployment`. Les autres ont une probabilité trés faible de faire partie du modèle.
+
+```{r eval=TRUE, echo=TRUE, fig.height=3, message=FALSE}
+# coefficients
+coeff <- data.frame(melt(apply(bsts.reg.priors$coefficients[-(1:burn),], 2, PositiveMean)))
+coeff$Variable <- as.character(row.names(coeff))
+ggplot(data=coeff, aes(x=Variable, y=value)) + 
+  geom_bar(stat="identity", position="identity") + 
+  theme(axis.text.x=element_text(angle = -90, hjust = 0)) + 
+  xlab("") + ylab("")
+```
+
+Nous pouvons afficher les composantes du modèle.
+
+```{r eval=TRUE, echo=TRUE, fig.height=5, fig.width=7, message=FALSE}
+# composantes du modèle
+components.withreg <- cbind.data.frame(
+  colMeans(bsts.reg.priors$state.contributions[-(1:burn),"trend",]),
+  colMeans(bsts.reg.priors$state.contributions[-(1:burn),"seasonal.52.1",]),
+  colMeans(bsts.reg.priors$state.contributions[-(1:burn),"regression",]),
+  as.Date(time(initial.claims)))  
+names(components.withreg) <- c("Trend", "Seasonality", "Regression", "Date")
+components.withreg <- melt(components.withreg, id.vars="Date")
+names(components.withreg) <- c("Date", "Component", "Value")
+
+ggplot(data=components.withreg, aes(x=Date, y=Value)) + geom_line() + 
+  theme_bw() + theme(legend.title = element_blank()) + ylab("") + xlab("") + 
+  facet_grid(Component ~ ., scales="free") + guides(colour=FALSE) 
+
+plot(bsts.reg.priors,main="Observations et valeurs obtenues par le modèle bsts.reg")
+```
+
+On voit que les données subissent une rupture de tendance durant l'année 2009, probablement dues à la crise économique. Le modèle réussis s'adapter à cette rupture de tendance.
+
+Nous allons considérer comme évaluation de l'erreur de prédiction la somme cumulative des erreurs de prédiction de $t$ sachant $t-1$.
+
+```{r eval=TRUE, echo=TRUE, fig.height=3, message=FALSE}
+# affichage prediction pour le prochain temps
+PlotBstsForecastDistribution(bsts.reg.priors)
+# evolution de l'erreur au cours du temps
+# renvoit la distribution postérieure de l'erreur de prediction pour t sachant t-1
+errors <- bsts.prediction.errors(bsts.reg.priors, burn = burn,standardize = TRUE)$in.sample
+PlotDynamicDistribution(errors)
+```
+
+L'erreur de prédiction pour les premier $t$ est importante. 
+nous pouvons nous intérresser également aux erreurs de prédiction pour le temps suivant cumulées.
+
+```{r eval=TRUE, echo=TRUE, fig.height=3,message=FALSE}
+cumulative.errors <- matrix(nrow = 1, ncol = ncol(errors))
+cumulative.errors[1,] <- cumsum(abs(colMeans(errors)))
+idx <- bsts.reg.priors$timestamp.info$timestamps
+plot(zoo(cumulative.errors[1, ], order.by = idx),xlab="Date",ylab="cumulative error")
+```
+
+Nous pouvoir voir ainsi que le modèle a su bien s'adapter à la rupture de tendance de 2009. 
+
+
+
+
+
+
+
+
+

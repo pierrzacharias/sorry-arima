@@ -152,7 +152,7 @@
             \begin{itemize}
                 \item Pour $i$ de 1 à $N$ tirer \\
                 {\addtolength{\leftskip}{2cm} 
-                    $\boldsymbol{z}_i^{(t+1)} \in \{1, 2 \}$ avec $\mathbb{P}(\boldsymbol{z}_i^{(t+1)}=1) = 
+                    $\boldsymbol{z}_i^{(t+1)} \in \{1, 2 \}$ avec $\mathbb{P}(\boldsymbol{z}_i^{(t+1)}=1 | \mu^{(t)}) = 
                     { \displaystyle \frac{
                     \hat{\pi}_{1}  p_{\mathcal{N}}(\boldsymbol{x}_i,\mu_{1}^{(t)}, \hat{\sigma}_{1})
                     }{
@@ -161,11 +161,11 @@
                     }}$
                 }
                 \item Pour $j \in \{ 1,2\} $ \\
-                Estimer 
+                Avec 
                 $\tau^{\prime}_{j_0} = \tau_0 + N \hat{\tau_j} \quad \displaystyle
                 \mu_{j_0}^{\prime} = \frac{N\ \hat{\tau_j}\ \bar{x}+\tau_{0} \mu_{0}}{N \hat{\tau_j}+\tau_{0}} 
                 $ \\
-                Tirer $\mu_{j}^{(t+1)} \sim \mathcal{N}\left(\mu_{j_0}^{\prime}, 1 / \tau^{\prime}_{j_0}\right)$
+                Tirer $\mu_{j}^{(t+1)}\ \boldsymbol{z} \sim \mathcal{N}\left(\mu_{j_0}^{\prime}, 1 / \tau^{\prime}_{j_0}\right)$
             \end{itemize}
     \end{enumerate}
    
