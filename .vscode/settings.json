@@ -1,0 +1,48 @@
+{
+    "python.pythonPath": "/usr/bin/python",
+    "git.ignoreLimitWarning": true,
+     "workbench.colorCustomizations": {
+    //   Input box background.
+        "input.background": "#0d0c08",
+        "input.border": "#0d0c08",
+        "inputOption.activeBorder": "#0d0c08",
+        "badge.background": "#0d0c08",
+        "searchEditor.findMatchBackground": "#0d0c08",
+        "dropdown.background": "#0d0c08",
+
+        "window.activeBorder": "#0d0c08",        :
+        "window.inactiveBorder": "#0d0c08",
+
+
+        "titleBar.activeBackground": "#0d0c08",
+        "titleBar.inactiveBackground": "#0d0c08",
+        "tab.inactiveBackground": "#0d0c08",
+        "editorGroupHeader.noTabsBackground": "#0d0c08",
+        "activityBar.background" : "#0d0c08",
+        "inputOption.activeBackground": "#0d0c08",
+        "editorGroup.dropBackground" :"#0d0c08",
+        "editorGroupHeader.tabsBackground" : "#0d0c08",
+        "editorGroupHeader.tabsBorder" : "#0d0c08",
+        "activityBar.activeBackground": "#0d0c08",
+        "debugToolBar.background": "#0d0c08",
+        "tab.activeBackground": "#0d0c08",
+        "editor.background": "#0d0c08",
+        "editorIndentGuide.background": "#0d0c08",
+        "editorRuler.foreground": "#0d0c08",
+        "editorPane.background": "#0d0c08",
+        "activityBarBadge.background": "#0d0c08",
+        "editorWidget.background": "#0d0c08",
+        "editorWidget.border": "#0d0c08",
+
+        "sideBar.background": "#0d0c08",
+
+        "sideBarTitle.foreground": "#0d0c08",
+        "sideBar.dropBackground": "#0d0c08",
+        "sideBarSectionHeader.background": "#0d0c08",
+
+        "scrollbarSlider.background": "#0d0c08",
+        "scrollbarSlider.activeBackground": "#0d0c08",
+        "breadcrumb.background": "#0d0c08"
+}
+
+}

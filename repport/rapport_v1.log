@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.2)  16 JAN 2020 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.1.21)  22 JAN 2020 14:19
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -554,10 +554,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip54
 ) (/usr/share/texmf-dist/tex/latex/calrsfs/calrsfs.sty
 \symrsfscript=\mathgroup6
-) (/usr/share/texmf-dist/tex/latex/amsfonts/euscript.sty
-Package: euscript 2009/06/22 v3.00 Euler Script fonts
-LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
-(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 ) (/usr/share/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2019/09/21 v0.5n Insert pages of external PDF documents (AM)
  (/usr/share/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -573,6 +569,10 @@ File: pppdftex.def 2019/09/21 v0.5n Pdfpages driver for pdfTeX (AM)
 \AM@toc@title=\toks47
 \c@AM@survey=\count160
 \AM@templatesizebox=\box44
+) (/usr/share/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 )
 \c@theorem=\count161
 \c@corollary=\count162
@@ -1306,7 +1306,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1012.
  ) 
 Here is how much of TeX's memory you used:
  22191 strings out of 492167
- 396565 string characters out of 6131559
+ 396565 string characters out of 6131558
  498105 words of memory out of 5000000
  25980 multiletter control sequences out of 15000+600000
  20035 words of font info for 46 fonts, out of 8000000 for 9000
